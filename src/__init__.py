@@ -30,4 +30,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 # import models to let the migrate tool know
-from src.models.user_model import User
+from src.models import (
+    User, BlackList, UsersPermissions, Notification, Alert,
+    Event, LicensePlate, Camera, FaceRecognition, Driver, Vehicle
+)
