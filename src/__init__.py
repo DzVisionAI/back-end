@@ -4,11 +4,18 @@ from src.config.config import Config
 from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_jwt_extended import JWTManager
+from flask_mail import Mail
+from flask_cors import CORS
+from datetime import timedelta
 
 load_dotenv()
 
 # declaring flask application
 app = Flask(__name__)
+
+# Enable CORS
+CORS(app)
 
 # calling the dev configuration
 config = Config().dev_config
@@ -22,6 +29,20 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("SQLALCHEMY_DATABASE_URI_
 # To specify to track modifications of objects and emit signals
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = os.environ.get("SQLALCHEMY_TRACK_MODIFICATIONS")
 
+# JWT Configuration
+app.config["JWT_SECRET_KEY"] = os.environ.get("JWT_SECRET_KEY", "your-secret-key")
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=24)
+
+# Mail Configuration
+app.config["MAIL_SERVER"] = os.environ.get("MAIL_SERVER", "smtp.gmail.com")
+app.config["MAIL_PORT"] = int(os.environ.get("MAIL_PORT", 587))
+app.config["MAIL_USE_TLS"] = os.environ.get("MAIL_USE_TLS", True)
+app.config["MAIL_USERNAME"] = os.environ.get("MAIL_USERNAME")
+app.config["MAIL_PASSWORD"] = os.environ.get("MAIL_PASSWORD")
+app.config["MAIL_DEFAULT_SENDER"] = os.environ.get("MAIL_DEFAULT_SENDER")
+
+# Frontend URL for password reset
+app.config["FRONTEND_URL"] = os.environ.get("FRONTEND_URL", "http://localhost:3000")
 
 # sql alchemy instance
 db = SQLAlchemy(app)
@@ -29,8 +50,16 @@ db = SQLAlchemy(app)
 # Flask Migrate instance to handle migrations
 migrate = Migrate(app, db)
 
+# Initialize extensions
+jwt = JWTManager(app)
+mail = Mail(app)
+
 # import models to let the migrate tool know
 from src.models import (
     User, BlackList, UsersPermissions, Notification, Alert,
     Event, LicensePlate, Camera, FaceRecognition, Driver, Vehicle
 )
+
+# Register blueprints
+from src.controllers.auth_controller import auth_bp
+app.register_blueprint(auth_bp, url_prefix='/api/auth')

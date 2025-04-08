@@ -6,3 +6,7 @@ Flask-SQLAlchemy
 Flask-Migrate
 flask-bcrypt
 psycopg2
+flask-jwt-extended
+flask-mail
+flask-cors
+bcrypt
