@@ -44,6 +44,10 @@ app.config["MAIL_DEFAULT_SENDER"] = os.environ.get("MAIL_DEFAULT_SENDER")
 # Frontend URL for password reset
 app.config["FRONTEND_URL"] = os.environ.get("FRONTEND_URL", "http://localhost:3000")
 
+# Video upload configuration
+app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024  # 16MB max file size
+app.config["UPLOAD_FOLDER"] = "uploads"
+
 # sql alchemy instance
 db = SQLAlchemy(app)
 
@@ -63,6 +67,8 @@ from src.models import (
 # Register blueprints
 from src.controllers.auth_controller import auth_bp
 from src.controllers.user_controller import user_bp
+from src.controllers.video_controller import video_bp
 
 app.register_blueprint(auth_bp, url_prefix='/api/auth')
 app.register_blueprint(user_bp, url_prefix='/api/users')
+app.register_blueprint(video_bp, url_prefix='/api/video')

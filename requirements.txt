@@ -10,3 +10,6 @@ flask-jwt-extended
 flask-mail
 flask-cors
 bcrypt
+opencv-python
+numpy
+werkzeug
