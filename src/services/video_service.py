@@ -1,155 +1,205 @@
 import cv2
 import numpy as np
 from datetime import datetime
+import os
+import uuid
+from werkzeug.utils import secure_filename
+import time
+
 from src import db
 from src.models.license_plates_model import LicensePlate
 from src.models.events_model import Event
-import os
-from werkzeug.utils import secure_filename
-import uuid
+from src.ai import LicensePlateDetector, VehicleTracker, get_car, read_license_plate
 
 class VideoService:
     def __init__(self):
-        # Initialize YOLO models
-        self.plate_detector = cv2.dnn.readNetFromDarknet(
-            'src/models/yolo/alpr_detector.cfg',
-            'src.models/yolo/alpr_detector.weights'
-        )
-        self.plate_recognizer = cv2.dnn.readNetFromDarknet(
-            'src/models/yolo/alpr_recognizer.cfg',
-            'src.models/yolo/alpr_recognizer.weights'
-        )
-        
-        # Get output layer names
-        self.layer_names = self.plate_detector.getLayerNames()
-        self.output_layers = [self.layer_names[i-1] for i in self.plate_detector.getUnconnectedOutLayers()]
-        
-        # Create upload directory if it doesn't exist
-        self.upload_folder = 'uploads/videos'
-        os.makedirs(self.upload_folder, exist_ok=True)
-
-    def process_video(self, video_file):
         try:
-            # Save the uploaded file
-            filename = secure_filename(video_file.filename)
-            unique_filename = f"{uuid.uuid4()}_{filename}"
-            file_path = os.path.join(self.upload_folder, unique_filename)
-            video_file.save(file_path)
+            # Create necessary directories
+            self.upload_folder = os.path.join(os.getcwd(), 'uploads')
+            self.video_folder = os.path.join(self.upload_folder, 'videos')
+            self.plates_folder = os.path.join(self.upload_folder, 'plates')
+            
+            os.makedirs(self.video_folder, exist_ok=True)
+            os.makedirs(self.plates_folder, exist_ok=True)
+            
+            # Initialize AI components
+            try:
+                self.detector = LicensePlateDetector()
+                self.tracker = VehicleTracker()
+                print("All AI components loaded successfully")
+            except Exception as model_error:
+                print(f"Error loading AI components: {str(model_error)}")
+                raise Exception(f"Failed to load AI components: {str(model_error)}")
+            
+            print("VideoService initialized successfully")
+            
+        except Exception as e:
+            print(f"Error initializing VideoService: {str(e)}")
+            raise Exception(f"Failed to initialize video service: {str(e)}")
 
-            # Open the video file
-            cap = cv2.VideoCapture(file_path)
-            fps = cap.get(cv2.CAP_PROP_FPS)
-            frame_count = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-            duration = frame_count / fps
+    def process_video(self, video_path, target_fps=15):
+        try:
+            # Check if video exists
+            if not os.path.exists(video_path):
+                return {
+                    'success': False,
+                    'message': f'Video file not found: {video_path}'
+                }
 
-            # Process each frame
+            print(f"Processing video: {video_path}")
+            
+            # Open video
+            cap = cv2.VideoCapture(video_path)
+            if not cap.isOpened():
+                return {
+                    'success': False,
+                    'message': 'Failed to open video file'
+                }
+            
+            # Get video properties
+            original_fps = cap.get(cv2.CAP_PROP_FPS)
+            total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+            
+            # Calculate frame interval to achieve target FPS
+            target_frame_time = 1.0 / target_fps
+            
+            # Initialize counters
             frame_number = 0
-            while cap.isOpened():
+            vehicles_detected = 0
+            plates_detected = 0
+            processing_times = []
+            last_frame_time = time.time()
+            
+            print(f"Original video FPS: {original_fps}, Target FPS: {target_fps}")
+            
+            # Process video
+            while True:
+                # Calculate time since last frame
+                current_time = time.time()
+                elapsed_time = current_time - last_frame_time
+                
+                # If we're processing faster than target FPS, wait
+                if elapsed_time < target_frame_time:
+                    time.sleep(target_frame_time - elapsed_time)
+                
+                start_time = time.time()
                 ret, frame = cap.read()
                 if not ret:
                     break
-
-                # Process every 5th frame to reduce processing time
-                if frame_number % 5 == 0:
-                    # Detect license plates
-                    plates = self.detect_plates(frame)
                     
-                    # Process each detected plate
-                    for plate in plates:
-                        # Recognize plate number
-                        plate_number = self.recognize_plate(plate)
-                        
-                        if plate_number:
-                            # Save to database
-                            self.save_plate_detection(plate_number, frame_number, frame)
-
                 frame_number += 1
-
+                
+                try:
+                    # Detect vehicles
+                    detections = self.detector.detect_vehicles(frame)
+                    vehicles_detected += len(detections)
+                    
+                    # Track vehicles
+                    track_ids = self.tracker.update(detections)
+                    
+                    # Detect license plates
+                    license_plates = self.detector.detect_license_plates(frame)
+                    
+                    for license_plate in license_plates:
+                        x1, y1, x2, y2, score, class_id = license_plate
+                        
+                        # Assign license plate to car
+                        xcar1, ycar1, xcar2, ycar2, car_id = get_car(license_plate, track_ids)
+                        
+                        if car_id != -1:
+                            try:
+                                # Crop license plate
+                                license_plate_crop = frame[int(y1):int(y2), int(x1):int(x2)]
+                                if license_plate_crop.size > 0:
+                                    # Process license plate
+                                    license_plate_crop_gray = cv2.cvtColor(license_plate_crop, cv2.COLOR_BGR2GRAY)
+                                    _, license_plate_crop_thresh = cv2.threshold(license_plate_crop_gray, 64, 255, cv2.THRESH_BINARY_INV)
+                                    
+                                    # Read license plate text
+                                    plate_text, text_score = read_license_plate(license_plate_crop_thresh)
+                                    
+                                    if plate_text is not None:
+                                        plates_detected += 1
+                                        # Save detection
+                                        detection_id = str(uuid.uuid4())
+                                        self.save_detection(
+                                            detection_id=detection_id,
+                                            frame_number=frame_number,
+                                            vehicle_crop=frame[int(ycar1):int(ycar2), int(xcar1):int(xcar2)],
+                                            plate_crop=license_plate_crop,
+                                            plate_text=plate_text,
+                                            text_score=text_score
+                                        )
+                            except Exception as plate_error:
+                                print(f"Error processing plate in frame {frame_number}: {str(plate_error)}")
+                                continue
+                    
+                    # Calculate processing time for this frame
+                    end_time = time.time()
+                    processing_time = end_time - start_time
+                    processing_times.append(processing_time)
+                    
+                    # Update last frame time
+                    last_frame_time = time.time()
+                    
+                    # Print progress every 30 frames
+                    if frame_number % 30 == 0:
+                        current_fps = 1.0 / (sum(processing_times[-30:]) / len(processing_times[-30:]))
+                        progress = (frame_number / total_frames) * 100
+                        print(f"Progress: {progress:.1f}% - Current FPS: {current_fps:.2f}")
+                    
+                except Exception as frame_error:
+                    print(f"Error processing frame {frame_number}: {str(frame_error)}")
+                    continue
+            
             cap.release()
+            
+            # Calculate overall statistics
+            avg_processing_time = sum(processing_times) / len(processing_times)
+            avg_fps = 1.0 / avg_processing_time
             
             return {
                 'success': True,
                 'message': 'Video processed successfully',
-                'duration': duration,
-                'frame_count': frame_count,
-                'fps': fps
+                'frames_processed': frame_number,
+                'vehicles_detected': vehicles_detected,
+                'plates_detected': plates_detected,
+                'average_fps': avg_fps,
+                'target_fps': target_fps,
+                'original_fps': original_fps,
+                'processing_time_per_frame': avg_processing_time,
+                'total_processing_time': sum(processing_times)
             }
 
         except Exception as e:
+            print(f"Error processing video: {str(e)}")
             return {
                 'success': False,
-                'message': str(e)
+                'message': f'Error processing video: {str(e)}'
             }
 
-    def detect_plates(self, frame):
-        height, width = frame.shape[:2]
-        
-        # Prepare image for YOLO
-        blob = cv2.dnn.blobFromImage(frame, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
-        self.plate_detector.setInput(blob)
-        outs = self.plate_detector.forward(self.output_layers)
-        
-        # Process detections
-        plates = []
-        for out in outs:
-            for detection in out:
-                scores = detection[5:]
-                class_id = np.argmax(scores)
-                confidence = scores[class_id]
-                
-                if confidence > 0.5:  # Confidence threshold
-                    # Get coordinates
-                    center_x = int(detection[0] * width)
-                    center_y = int(detection[1] * height)
-                    w = int(detection[2] * width)
-                    h = int(detection[3] * height)
-                    
-                    # Rectangle coordinates
-                    x = int(center_x - w / 2)
-                    y = int(center_y - h / 2)
-                    
-                    # Extract plate region
-                    plate = frame[y:y+h, x:x+w]
-                    plates.append(plate)
-        
-        return plates
-
-    def recognize_plate(self, plate):
-        # Preprocess plate image
-        plate = cv2.resize(plate, (416, 416))
-        plate = cv2.cvtColor(plate, cv2.COLOR_BGR2GRAY)
-        plate = cv2.threshold(plate, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
-        
-        # Prepare for YOLO
-        blob = cv2.dnn.blobFromImage(plate, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
-        self.plate_recognizer.setInput(blob)
-        outs = self.plate_recognizer.forward()
-        
-        # Process recognition results
-        # This is a simplified version - you'll need to implement proper OCR
-        # based on your specific YOLO model's output format
-        plate_number = "ABC123"  # Placeholder
-        
-        return plate_number
-
-    def save_plate_detection(self, plate_number, frame_number, frame):
+    def save_detection(self, detection_id, frame_number, vehicle_crop, plate_crop, plate_text, text_score):
         try:
-            # Save the frame image
-            image_path = f'uploads/plates/{plate_number}_{frame_number}.jpg'
-            os.makedirs(os.path.dirname(image_path), exist_ok=True)
-            cv2.imwrite(image_path, frame)
+            # Save the vehicle image
+            vehicle_path = os.path.join(self.plates_folder, f'vehicle_{detection_id}_{frame_number}.jpg')
+            cv2.imwrite(vehicle_path, vehicle_crop)
+            
+            # Save the plate image
+            plate_path = os.path.join(self.plates_folder, f'plate_{detection_id}_{frame_number}.jpg')
+            cv2.imwrite(plate_path, plate_crop)
             
             # Create license plate record
             license_plate = LicensePlate(
-                plateNumber=plate_number,
+                plateNumber=plate_text,
                 detectedAt=datetime.utcnow(),
-                image=image_path
+                image=plate_path,
+                confidence=float(text_score)
             )
             
             # Create event record
             event = Event(
-                typeName='plate_detection',
-                description=f'License plate {plate_number} detected',
+                typeName='license_plate_detection',
+                description=f'License plate {plate_text} detected in frame {frame_number}',
                 time=datetime.utcnow()
             )
             
@@ -159,5 +209,6 @@ class VideoService:
             db.session.commit()
             
         except Exception as e:
+            print(f"Error saving detection: {str(e)}")
             db.session.rollback()
             raise e 

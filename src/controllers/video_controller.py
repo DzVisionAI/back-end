@@ -1,6 +1,7 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, current_app
 from src.services.video_service import VideoService
 from werkzeug.utils import secure_filename
+import os
 
 video_bp = Blueprint('video', __name__)
 
@@ -29,8 +30,35 @@ def upload_video():
         }), 400
 
     try:
+        # Secure the filename and save the file
+        filename = secure_filename(video_file.filename)
+        upload_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+        video_file.save(upload_path)
+        
+        return jsonify({
+            'success': True,
+            'message': 'Video uploaded successfully',
+            'filename': filename
+        }), 200
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'message': str(e)
+        }), 500
+
+@video_bp.route('/process/<filename>', methods=['POST'])
+def process_video(filename):
+    try:
+        # Check if file exists
+        file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+        if not os.path.exists(file_path):
+            return jsonify({
+                'success': False,
+                'message': 'Video file not found'
+            }), 404
+
         video_service = VideoService()
-        result = video_service.process_video(video_file)
+        result = video_service.process_video(file_path)
         return jsonify(result), 200 if result['success'] else 400
     except Exception as e:
         return jsonify({

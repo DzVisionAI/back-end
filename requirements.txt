@@ -10,6 +10,13 @@ flask-jwt-extended
 flask-mail
 flask-cors
 bcrypt
-opencv-python
 numpy
 werkzeug
+torch>=2.0.0
+ultralytics>=8.0.0
+pandas
+opencv-python
+numpy
+scipy
+easyocr
+filterpy
