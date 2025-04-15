@@ -3,3 +3,8 @@ __pycache__
 .env
 migrations
 uploads
+migrations/
+src/ai/out.mp4
+src/ai/results.csv
+src/ai/sampl.mp4
+uploads/
