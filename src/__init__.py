@@ -45,8 +45,11 @@ app.config["MAIL_DEFAULT_SENDER"] = os.environ.get("MAIL_DEFAULT_SENDER")
 app.config["FRONTEND_URL"] = os.environ.get("FRONTEND_URL", "http://localhost:3000")
 
 # Video upload configuration
-app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024  # 16MB max file size
-app.config["UPLOAD_FOLDER"] = "uploads"
+app.config["MAX_CONTENT_LENGTH"] = 500 * 1024 * 1024  # 500MB max file size
+app.config["UPLOAD_FOLDER"] = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "uploads")
+
+# Create uploads directory if it doesn't exist
+os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 
 # sql alchemy instance
 db = SQLAlchemy(app)
