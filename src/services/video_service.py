@@ -10,6 +10,7 @@ from src import db
 from src.models.license_plates_model import LicensePlate
 from src.models.events_model import Event
 from src.ai import LicensePlateDetector, VehicleTracker, get_car, read_license_plate
+from src.models.vehicles_model import Vehicle
 
 class VideoService:
     def __init__(self):
@@ -104,6 +105,7 @@ class VideoService:
                         x1, y1, x2, y2, score, class_id = license_plate
                         
                         # Assign license plate to car
+
                         xcar1, ycar1, xcar2, ycar2, car_id = get_car(license_plate, track_ids)
                         
                         if car_id != -1:
@@ -178,37 +180,110 @@ class VideoService:
                 'message': f'Error processing video: {str(e)}'
             }
 
+
     def save_detection(self, detection_id, frame_number, vehicle_crop, plate_crop, plate_text, text_score):
+        """Save detection results to files and database with proper model relationships."""
         try:
-            # Save the vehicle image
-            vehicle_path = os.path.join(self.plates_folder, f'vehicle_{detection_id}_{frame_number}.jpg')
-            cv2.imwrite(vehicle_path, vehicle_crop)
+            # Generate unique filenames with timestamp
+            timestamp = datetime.utcnow().strftime('%Y%m%d_%H%M%S')
+            vehicle_filename = f'vehicle_{detection_id}_{timestamp}_{frame_number}.jpg'
+            plate_filename = f'plate_{detection_id}_{timestamp}_{frame_number}.jpg'
             
-            # Save the plate image
-            plate_path = os.path.join(self.plates_folder, f'plate_{detection_id}_{frame_number}.jpg')
-            cv2.imwrite(plate_path, plate_crop)
+            # Create full paths
+            vehicle_path = os.path.join(self.plates_folder, vehicle_filename)
+            plate_path = os.path.join(self.plates_folder, plate_filename)
             
-            # Create license plate record
-            license_plate = LicensePlate(
-                plateNumber=plate_text,
-                detectedAt=datetime.utcnow(),
-                image=plate_path,
-                confidence=float(text_score)
-            )
+            # Save images with error checking
+            if not cv2.imwrite(vehicle_path, vehicle_crop):
+                raise Exception(f"Failed to save vehicle image to {vehicle_path}")
+            if not cv2.imwrite(plate_path, plate_crop):
+                raise Exception(f"Failed to save plate image to {plate_path}")
             
-            # Create event record
-            event = Event(
-                typeName='license_plate_detection',
-                description=f'License plate {plate_text} detected in frame {frame_number}',
-                time=datetime.utcnow()
-            )
+            print(f"Saved images - Vehicle: {vehicle_path}, Plate: {plate_path}")
             
-            # Save to database
-            db.session.add(license_plate)
-            db.session.add(event)
-            db.session.commit()
+            detection_time = datetime.utcnow()
+            
+            try:
+                # First, check if vehicle exists with this plate number
+                vehicle = Vehicle.query.filter_by(plateNumber=plate_text).first()
+                
+                if not vehicle:
+                    # Create new vehicle if not exists
+                    vehicle = Vehicle(
+                        plateNumber=plate_text,
+                        registerAt=detection_time,
+                        # These fields would be updated later when more info is available
+                        color=None,
+                        make=None,
+                        model=None,
+                        ownerId=None
+                    )
+                    db.session.add(vehicle)
+                    # Flush to get the vehicle ID
+                    db.session.flush()
+                
+                # Create license plate record
+                license_plate = LicensePlate(
+                    plateNumber=plate_text,
+                    detectedAt=detection_time,
+                    image=plate_path,
+                    vehicleId=str(vehicle.id),  # Link to the vehicle
+                    cameraId=None  # This would be set when camera info is available
+                )
+                db.session.add(license_plate)
+                db.session.flush()  # Get the license plate ID
+                
+                # Create event record
+                event = Event(
+                    typeName='license_plate_detection',
+                    description=f'License plate {plate_text} detected in frame {frame_number}',
+                    time=detection_time,
+                    plateId=license_plate.id,  # Link to the license plate
+                    cameraId=None,  # This would be set when camera info is available
+                    driverId=None  # This would be set when driver info is available
+                )
+                db.session.add(event)
+                
+                # Commit all changes
+                db.session.commit()
+                print(f"Successfully saved to database - Vehicle: {vehicle.id}, Plate: {plate_text}, Event: {event.id}")
+                
+                return {
+                    'success': True,
+                    'vehicle': {
+                        'id': vehicle.id,
+                        'plate_number': vehicle.plateNumber,
+                        'image_path': vehicle_path
+                    },
+                    'license_plate': {
+                        'id': license_plate.id,
+                        'number': plate_text,
+                        'image_path': plate_path
+                    },
+                    'event': {
+                        'id': event.id,
+                        'type': event.typeName,
+                        'time': detection_time
+                    },
+                    'frame_number': frame_number,
+
+                    'detection_time': detection_time
+                }
+                
+            except Exception as db_error:
+                db.session.rollback()
+                print(f"Database error: {str(db_error)}")
+                # Clean up saved images if database save failed
+                try:
+                    if os.path.exists(vehicle_path):
+                        os.remove(vehicle_path)
+                    if os.path.exists(plate_path):
+                        os.remove(plate_path)
+                except Exception as cleanup_error:
+                    print(f"Error cleaning up images after failed database save: {str(cleanup_error)}")
+                raise Exception(f"Failed to save to database: {str(db_error)}")
             
         except Exception as e:
-            print(f"Error saving detection: {str(e)}")
+            print(f"Error in save_detection: {str(e)}")
             db.session.rollback()
-            raise e 
+            raise e
