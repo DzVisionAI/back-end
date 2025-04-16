@@ -11,9 +11,10 @@ class Vehicle(db.Model):
     model = db.Column(db.String(100))
     ownerId = db.Column(db.Integer)
     registerAt = db.Column(db.DateTime, default=datetime.utcnow)
+    image = db.Column(db.String(500))  # Path to vehicle image
     
     # Relationships
     drivers = db.relationship('Driver', backref='vehicle', lazy=True)
 
     def __repr__(self):
-        return f'<Vehicle plate={self.plateNumber}>' 
+        return f'<Vehicle plate={self.plateNumber}, make={self.make}, color={self.color}>' 

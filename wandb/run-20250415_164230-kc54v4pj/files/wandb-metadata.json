@@ -1,0 +1,31 @@
+{
+  "os": "Linux-6.2.0-39-generic-x86_64-with-glibc2.35",
+  "python": "CPython 3.12.4",
+  "startedAt": "2025-04-15T15:42:30.678823Z",
+  "program": "/home/lokmane-zed/project/DzVisionAi/back-end/src/ai/train_vehicle_model.py",
+  "codePath": "src/ai/train_vehicle_model.py",
+  "git": {
+    "remote": "https://github.com/DzVisionAI/back-end.git",
+    "commit": "6585935c68c3b0dff5556d74356e5d40fe0037b0"
+  },
+  "email": "lokmanezeddoun@gmail.com",
+  "root": "/home/lokmane-zed/project/DzVisionAi/back-end",
+  "host": "lokmane-zed",
+  "executable": "/home/lokmane-zed/Applications/cursor/Cursor-0.47.9-x86_64.AppImage",
+  "codePathLocal": "src/ai/train_vehicle_model.py",
+  "cpu_count": 4,
+  "cpu_count_logical": 8,
+  "disk": {
+    "/": {
+      "total": "72808206336",
+      "used": "64127340544"
+    }
+  },
+  "memory": {
+    "total": "16429436928"
+  },
+  "cpu": {
+    "count": 4,
+    "countLogical": 8
+  }
+}

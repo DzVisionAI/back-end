@@ -12,6 +12,9 @@ from src.models.events_model import Event
 from src.ai import LicensePlateDetector, VehicleTracker, get_car, read_license_plate
 from src.models.vehicles_model import Vehicle
 
+# Import new AI functions (you'll need to implement these)
+from src.ai import detect_vehicle_color, detect_vehicle_make
+
 class VideoService:
     def __init__(self):
         try:
@@ -201,6 +204,16 @@ class VideoService:
             
             print(f"Saved images - Vehicle: {vehicle_path}, Plate: {plate_path}")
             
+            # Detect vehicle color and make
+            try:
+                vehicle_color = detect_vehicle_color(vehicle_crop)
+                vehicle_make = detect_vehicle_make(vehicle_crop)
+                print(f"Detected vehicle properties - Color: {vehicle_color}, Make: {vehicle_make}")
+            except Exception as ai_error:
+                print(f"Error detecting vehicle properties: {str(ai_error)}")
+                vehicle_color = None
+                vehicle_make = None
+            
             detection_time = datetime.utcnow()
             
             try:
@@ -212,47 +225,92 @@ class VideoService:
                     vehicle = Vehicle(
                         plateNumber=plate_text,
                         registerAt=detection_time,
-                        # These fields would be updated later when more info is available
-                        color=None,
-                        make=None,
-                        model=None,
-                        ownerId=None
+                        color=vehicle_color,
+                        make=vehicle_make,
+                        model=None,  # This could be enhanced with model detection
+                        ownerId=None,
+                        image=vehicle_path  # Save the path to the vehicle image
                     )
                     db.session.add(vehicle)
                     # Flush to get the vehicle ID
                     db.session.flush()
+                    
+                    # Create event for new vehicle registration
+                    registration_event = Event(
+                        typeName='new_vehicle_registration',
+                        description=f'New vehicle registered with plate {plate_text}, color: {vehicle_color}, make: {vehicle_make}',
+                        time=detection_time,
+                        plateId=None,  # Will be set after license plate is created
+                        cameraId=None,
+                        driverId=None
+                    )
+                    db.session.add(registration_event)
+                else:
+                    # Update existing vehicle information if new data is available
+                    if vehicle_color and not vehicle.color:
+                        vehicle.color = vehicle_color
+                        # Create event for color update
+                        color_event = Event(
+                            typeName='vehicle_color_update',
+                            description=f'Vehicle color detected: {vehicle_color}',
+                            time=detection_time,
+                            plateId=None,
+                            cameraId=None,
+                            driverId=None
+                        )
+                        db.session.add(color_event)
+                    
+                    if vehicle_make and not vehicle.make:
+                        vehicle.make = vehicle_make
+                        # Create event for make update
+                        make_event = Event(
+                            typeName='vehicle_make_update',
+                            description=f'Vehicle make detected: {vehicle_make}',
+                            time=detection_time,
+                            plateId=None,
+                            cameraId=None,
+                            driverId=None
+                        )
+                        db.session.add(make_event)
                 
                 # Create license plate record
                 license_plate = LicensePlate(
                     plateNumber=plate_text,
                     detectedAt=detection_time,
                     image=plate_path,
-                    vehicleId=str(vehicle.id),  # Link to the vehicle
-                    cameraId=None  # This would be set when camera info is available
+                    vehicleId=str(vehicle.id),
+                    cameraId=None
                 )
                 db.session.add(license_plate)
-                db.session.flush()  # Get the license plate ID
+                db.session.flush()
                 
-                # Create event record
-                event = Event(
+                # Update plateId for all events
+                for event in db.session.new:
+                    if isinstance(event, Event) and event.plateId is None:
+                        event.plateId = license_plate.id
+                
+                # Create detection event
+                detection_event = Event(
                     typeName='license_plate_detection',
                     description=f'License plate {plate_text} detected in frame {frame_number}',
                     time=detection_time,
-                    plateId=license_plate.id,  # Link to the license plate
-                    cameraId=None,  # This would be set when camera info is available
-                    driverId=None  # This would be set when driver info is available
+                    plateId=license_plate.id,
+                    cameraId=None,
+                    driverId=None
                 )
-                db.session.add(event)
+                db.session.add(detection_event)
                 
                 # Commit all changes
                 db.session.commit()
-                print(f"Successfully saved to database - Vehicle: {vehicle.id}, Plate: {plate_text}, Event: {event.id}")
+                print(f"Successfully saved to database - Vehicle: {vehicle.id}, Plate: {plate_text}")
                 
                 return {
                     'success': True,
                     'vehicle': {
                         'id': vehicle.id,
                         'plate_number': vehicle.plateNumber,
+                        'color': vehicle.color,
+                        'make': vehicle.make,
                         'image_path': vehicle_path
                     },
                     'license_plate': {
@@ -260,13 +318,8 @@ class VideoService:
                         'number': plate_text,
                         'image_path': plate_path
                     },
-                    'event': {
-                        'id': event.id,
-                        'type': event.typeName,
-                        'time': detection_time
-                    },
+                    'events': [event.typeName for event in db.session.new if isinstance(event, Event)],
                     'frame_number': frame_number,
-
                     'detection_time': detection_time
                 }
                 

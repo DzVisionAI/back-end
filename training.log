@@ -1,0 +1,8 @@
+2025-04-15 16:36:38,052 - INFO - Loaded 16 colors and 30 makes from configuration
+2025-04-15 16:41:10,951 - INFO - Loaded 16 colors and 30 makes from configuration
+2025-04-15 16:42:29,158 - INFO - Loaded 16 colors and 30 makes from configuration
+2025-04-15 22:31:19,514 - INFO - Loaded 16 colors and 30 makes from configuration
+2025-04-15 22:31:22,675 - INFO - Looking for dataset in: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset
+2025-04-15 22:31:22,727 - INFO - Successfully loaded 0 images
+2025-04-15 22:31:22,728 - ERROR - No images found in the dataset
+2025-04-15 22:31:22,728 - INFO - Please ensure the dataset is properly prepared with images

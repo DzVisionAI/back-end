@@ -1,0 +1,23 @@
+2025-04-15 22:31:20,854 INFO    MainThread:222809 [wandb_setup.py:_flush():67] Current SDK version is 0.19.9
+2025-04-15 22:31:20,855 INFO    MainThread:222809 [wandb_setup.py:_flush():67] Configure stats pid to 222809
+2025-04-15 22:31:20,855 INFO    MainThread:222809 [wandb_setup.py:_flush():67] Loading settings from /home/lokmane-zed/.config/wandb/settings
+2025-04-15 22:31:20,855 INFO    MainThread:222809 [wandb_setup.py:_flush():67] Loading settings from /home/lokmane-zed/project/DzVisionAi/back-end/wandb/settings
+2025-04-15 22:31:20,855 INFO    MainThread:222809 [wandb_setup.py:_flush():67] Loading settings from environment variables
+2025-04-15 22:31:20,855 INFO    MainThread:222809 [wandb_init.py:setup_run_log_directory():662] Logging user logs to /home/lokmane-zed/project/DzVisionAi/back-end/wandb/run-20250415_223120-whwnyjpj/logs/debug.log
+2025-04-15 22:31:20,855 INFO    MainThread:222809 [wandb_init.py:setup_run_log_directory():663] Logging internal logs to /home/lokmane-zed/project/DzVisionAi/back-end/wandb/run-20250415_223120-whwnyjpj/logs/debug-internal.log
+2025-04-15 22:31:20,855 INFO    MainThread:222809 [wandb_init.py:init():781] calling init triggers
+2025-04-15 22:31:20,855 INFO    MainThread:222809 [wandb_init.py:init():786] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-04-15 22:31:20,855 INFO    MainThread:222809 [wandb_init.py:init():809] starting backend
+2025-04-15 22:31:20,855 INFO    MainThread:222809 [wandb_init.py:init():813] sending inform_init request
+2025-04-15 22:31:20,878 INFO    MainThread:222809 [backend.py:_multiprocessing_setup():101] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-04-15 22:31:20,879 INFO    MainThread:222809 [wandb_init.py:init():823] backend started and connected
+2025-04-15 22:31:20,883 INFO    MainThread:222809 [wandb_init.py:init():915] updated telemetry
+2025-04-15 22:31:20,913 INFO    MainThread:222809 [wandb_init.py:init():939] communicating run to backend with 90.0 second timeout
+2025-04-15 22:31:21,980 INFO    MainThread:222809 [wandb_init.py:init():1014] starting run threads in backend
+2025-04-15 22:31:22,669 INFO    MainThread:222809 [wandb_run.py:_console_start():2454] atexit reg
+2025-04-15 22:31:22,669 INFO    MainThread:222809 [wandb_run.py:_redirect():2306] redirect: wrap_raw
+2025-04-15 22:31:22,670 INFO    MainThread:222809 [wandb_run.py:_redirect():2371] Wrapping output streams.
+2025-04-15 22:31:22,670 INFO    MainThread:222809 [wandb_run.py:_redirect():2394] Redirects installed.
+2025-04-15 22:31:22,674 INFO    MainThread:222809 [wandb_init.py:init():1056] run started, returning control to user process
+2025-04-15 22:31:23,073 INFO    MsgRouterThr:222809 [mailbox.py:close():129] [no run ID] Closing mailbox, abandoning 1 handles.

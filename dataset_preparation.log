@@ -1,0 +1,1021 @@
+2025-04-15 16:29:48,149 - INFO - Downloading Stanford Cars dataset...
+2025-04-15 16:29:52,522 - INFO - Extracting dataset...
+2025-04-15 16:29:52,603 - ERROR - Error preparing dataset: [Errno 2] No such file or directory: 'config/colors.json'
+2025-04-15 16:31:56,311 - INFO - Downloading Stanford Cars dataset...
+2025-04-15 16:32:06,853 - INFO - Extracting dataset...
+2025-04-15 16:32:06,933 - ERROR - Error preparing dataset: [Errno 2] No such file or directory: 'config/colors.json'
+2025-04-15 16:34:08,649 - INFO - Downloading Stanford Cars dataset...
+2025-04-15 16:34:12,516 - INFO - Extracting dataset...
+2025-04-15 16:34:12,590 - ERROR - Error preparing dataset: [Errno 2] No such file or directory: 'config/colors.json'
+2025-04-15 16:35:02,987 - INFO - Downloading Stanford Cars dataset...
+2025-04-15 16:35:06,498 - INFO - Extracting dataset...
+2025-04-15 16:35:06,591 - ERROR - Error preparing dataset: [Errno 2] No such file or directory: './config/colors.json'
+2025-04-15 16:35:46,300 - INFO - Downloading Stanford Cars dataset...
+2025-04-15 16:35:49,496 - INFO - Extracting dataset...
+2025-04-15 16:35:49,612 - INFO - Created directory structure for vehicle dataset
+2025-04-15 16:35:49,612 - INFO - Please populate the directories with appropriate images
+2025-04-15 16:35:49,612 - INFO - Dataset path: data/vehicle_dataset
+2025-04-15 16:35:49,613 - INFO - Dataset preparation complete!
+2025-04-15 16:35:49,613 - INFO - Please review the README.md file in the dataset directory for next steps.
+2025-04-15 16:44:54,020 - INFO - Downloading Stanford Cars dataset...
+2025-04-15 16:44:57,636 - INFO - Extracting dataset...
+2025-04-15 16:44:57,735 - INFO - Created directory structure for vehicle dataset
+2025-04-15 16:44:57,735 - INFO - Please populate the directories with appropriate images
+2025-04-15 16:44:57,735 - INFO - Dataset path: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset
+2025-04-15 16:44:57,736 - INFO - Dataset preparation complete!
+2025-04-15 16:44:57,736 - INFO - Please review the README.md file in the dataset directory for next steps.
+2025-04-15 16:46:18,432 - INFO - Downloading Stanford Cars dataset...
+2025-04-15 16:46:21,688 - INFO - Extracting dataset...
+2025-04-15 16:46:21,809 - INFO - Created directory structure for vehicle dataset
+2025-04-15 16:46:21,810 - INFO - Please populate the directories with appropriate images
+2025-04-15 16:46:21,810 - INFO - Dataset path: data/vehicle_dataset
+2025-04-15 16:46:21,810 - INFO - Dataset preparation complete!
+2025-04-15 16:46:21,810 - INFO - Please review the README.md file in the dataset directory for next steps.
+2025-04-15 16:48:22,786 - INFO - Starting Stanford Cars dataset preparation...
+2025-04-15 16:48:22,786 - INFO - Downloading https://ai.stanford.edu/~jkrause/car196/cars_train.tgz...
+2025-04-15 16:48:23,691 - INFO - Downloading https://ai.stanford.edu/~jkrause/car196/cars_test.tgz...
+2025-04-15 16:48:24,532 - INFO - Downloading https://ai.stanford.edu/~jkrause/car196/cars_meta.mat...
+2025-04-15 16:48:25,357 - INFO - Extracting cars_train.tgz...
+2025-04-15 16:48:25,358 - ERROR - Failed to extract cars_train.tgz: not a gzip file
+2025-04-15 16:48:25,358 - ERROR - Error preparing dataset: not a gzip file
+2025-04-15 16:50:17,925 - INFO - Starting Stanford Cars dataset preparation...
+2025-04-15 16:50:17,925 - INFO - Downloading https://ai.stanford.edu/~jkrause/cars/car_devkit.tgz...
+2025-04-15 16:50:17,925 - INFO - Downloading https://ai.stanford.edu/~jkrause/cars/car_devkit.tgz to car_devkit.tgz
+2025-04-15 16:50:18,812 - ERROR - Network error while downloading car_devkit.tgz: 404 Client Error: Not Found for url: https://ai.stanford.edu/~jkrause/cars/car_devkit.tgz
+2025-04-15 16:50:18,812 - ERROR - Error preparing dataset: Failed to download car_devkit.tgz: 404 Client Error: Not Found for url: https://ai.stanford.edu/~jkrause/cars/car_devkit.tgz
+2025-04-15 16:57:29,002 - INFO - Starting Stanford Cars dataset preparation...
+2025-04-15 16:57:29,002 - INFO - Downloading Stanford Cars dataset from Kaggle...
+2025-04-15 17:12:02,228 - ERROR - Error preparing dataset: [Errno 28] 2025-04-15 17:17:41,385 - INFO - Starting Stanford Cars dataset preparation...
+2025-04-15 17:17:41,386 - INFO - Downloading Stanford Cars dataset from Kaggle...
+2025-04-15 17:18:09,386 - INFO - Dataset downloaded to: /home/lokmane-zed/.cache/kagglehub/datasets/jessicali9530/stanford-cars-dataset/versions/2
+2025-04-15 17:18:09,388 - INFO - Copied cars_annos.mat to dataset directory
+2025-04-15 17:18:09,389 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/black
+2025-04-15 17:18:09,389 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/white
+2025-04-15 17:18:09,389 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/silver
+2025-04-15 17:18:09,389 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/gray
+2025-04-15 17:18:09,390 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/red
+2025-04-15 17:18:09,390 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/blue
+2025-04-15 17:18:09,390 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/brown
+2025-04-15 17:18:09,390 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/green
+2025-04-15 17:18:09,390 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/beige
+2025-04-15 17:18:09,391 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/gold
+2025-04-15 17:18:09,391 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/yellow
+2025-04-15 17:18:09,391 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/orange
+2025-04-15 17:18:09,391 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/burgundy
+2025-04-15 17:18:09,391 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/purple
+2025-04-15 17:18:09,392 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/bronze
+2025-04-15 17:18:09,392 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/champagne
+2025-04-15 17:18:09,392 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/black
+2025-04-15 17:18:09,392 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/white
+2025-04-15 17:18:09,392 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/silver
+2025-04-15 17:18:09,393 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/gray
+2025-04-15 17:18:09,393 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/red
+2025-04-15 17:18:09,393 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/blue
+2025-04-15 17:18:09,393 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/brown
+2025-04-15 17:18:09,393 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/green
+2025-04-15 17:18:09,394 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/beige
+2025-04-15 17:18:09,394 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/gold
+2025-04-15 17:18:09,394 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/yellow
+2025-04-15 17:18:09,394 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/orange
+2025-04-15 17:18:09,395 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/burgundy
+2025-04-15 17:18:09,395 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/purple
+2025-04-15 17:18:09,395 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/bronze
+2025-04-15 17:18:09,395 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/champagne
+2025-04-15 17:18:09,395 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/black
+2025-04-15 17:18:09,396 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/white
+2025-04-15 17:18:09,396 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/silver
+2025-04-15 17:18:09,396 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/gray
+2025-04-15 17:18:09,396 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/red
+2025-04-15 17:18:09,397 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/blue
+2025-04-15 17:18:09,397 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/brown
+2025-04-15 17:18:09,397 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/green
+2025-04-15 17:18:09,397 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/beige
+2025-04-15 17:18:09,397 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/gold
+2025-04-15 17:18:09,398 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/yellow
+2025-04-15 17:18:09,398 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/orange
+2025-04-15 17:18:09,398 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/burgundy
+2025-04-15 17:18:09,398 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/purple
+2025-04-15 17:18:09,398 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/bronze
+2025-04-15 17:18:09,399 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/champagne
+2025-04-15 17:18:09,399 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/black
+2025-04-15 17:18:09,399 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/white
+2025-04-15 17:18:09,399 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/silver
+2025-04-15 17:18:09,399 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/gray
+2025-04-15 17:18:09,400 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/red
+2025-04-15 17:18:09,400 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/blue
+2025-04-15 17:18:09,400 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/brown
+2025-04-15 17:18:09,400 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/green
+2025-04-15 17:18:09,401 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/beige
+2025-04-15 17:18:09,401 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/gold
+2025-04-15 17:18:09,401 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/yellow
+2025-04-15 17:18:09,401 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/orange
+2025-04-15 17:18:09,401 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/burgundy
+2025-04-15 17:18:09,402 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/purple
+2025-04-15 17:18:09,402 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/bronze
+2025-04-15 17:18:09,402 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/champagne
+2025-04-15 17:18:09,402 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/black
+2025-04-15 17:18:09,403 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/white
+2025-04-15 17:18:09,403 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/silver
+2025-04-15 17:18:09,403 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/gray
+2025-04-15 17:18:09,403 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/red
+2025-04-15 17:18:09,403 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/blue
+2025-04-15 17:18:09,404 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/brown
+2025-04-15 17:18:09,404 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/green
+2025-04-15 17:18:09,404 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/beige
+2025-04-15 17:18:09,404 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/gold
+2025-04-15 17:18:09,405 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/yellow
+2025-04-15 17:18:09,405 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/orange
+2025-04-15 17:18:09,405 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/burgundy
+2025-04-15 17:18:09,405 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/purple
+2025-04-15 17:18:09,405 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/bronze
+2025-04-15 17:18:09,406 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/champagne
+2025-04-15 17:18:09,406 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/black
+2025-04-15 17:18:09,406 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/white
+2025-04-15 17:18:09,406 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/silver
+2025-04-15 17:18:09,407 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/gray
+2025-04-15 17:18:09,407 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/red
+2025-04-15 17:18:09,407 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/blue
+2025-04-15 17:18:09,407 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/brown
+2025-04-15 17:18:09,407 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/green
+2025-04-15 17:18:09,408 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/beige
+2025-04-15 17:18:09,408 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/gold
+2025-04-15 17:18:09,408 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/yellow
+2025-04-15 17:18:09,408 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/orange
+2025-04-15 17:18:09,409 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/burgundy
+2025-04-15 17:18:09,409 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/purple
+2025-04-15 17:18:09,409 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/bronze
+2025-04-15 17:18:09,409 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/champagne
+2025-04-15 17:18:09,410 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/black
+2025-04-15 17:18:09,410 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/white
+2025-04-15 17:18:09,410 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/silver
+2025-04-15 17:18:09,410 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/gray
+2025-04-15 17:18:09,411 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/red
+2025-04-15 17:18:09,411 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/blue
+2025-04-15 17:18:09,411 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/brown
+2025-04-15 17:18:09,411 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/green
+2025-04-15 17:18:09,411 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/beige
+2025-04-15 17:18:09,412 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/gold
+2025-04-15 17:18:09,412 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/yellow
+2025-04-15 17:18:09,412 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/orange
+2025-04-15 17:18:09,412 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/burgundy
+2025-04-15 17:18:09,412 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/purple
+2025-04-15 17:18:09,413 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/bronze
+2025-04-15 17:18:09,413 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/champagne
+2025-04-15 17:18:09,413 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/black
+2025-04-15 17:18:09,413 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/white
+2025-04-15 17:18:09,413 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/silver
+2025-04-15 17:18:09,413 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/gray
+2025-04-15 17:18:09,414 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/red
+2025-04-15 17:18:09,414 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/blue
+2025-04-15 17:18:09,414 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/brown
+2025-04-15 17:18:09,414 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/green
+2025-04-15 17:18:09,414 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/beige
+2025-04-15 17:18:09,414 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/gold
+2025-04-15 17:18:09,415 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/yellow
+2025-04-15 17:18:09,415 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/orange
+2025-04-15 17:18:09,415 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/burgundy
+2025-04-15 17:18:09,415 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/purple
+2025-04-15 17:18:09,415 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/bronze
+2025-04-15 17:18:09,415 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/champagne
+2025-04-15 17:18:09,416 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/black
+2025-04-15 17:18:09,416 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/white
+2025-04-15 17:18:09,416 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/silver
+2025-04-15 17:18:09,416 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/gray
+2025-04-15 17:18:09,416 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/red
+2025-04-15 17:18:09,417 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/blue
+2025-04-15 17:18:09,417 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/brown
+2025-04-15 17:18:09,417 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/green
+2025-04-15 17:18:09,417 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/beige
+2025-04-15 17:18:09,417 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/gold
+2025-04-15 17:18:09,417 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/yellow
+2025-04-15 17:18:09,418 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/orange
+2025-04-15 17:18:09,418 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/burgundy
+2025-04-15 17:18:09,418 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/purple
+2025-04-15 17:18:09,418 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/bronze
+2025-04-15 17:18:09,418 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/champagne
+2025-04-15 17:18:09,419 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/black
+2025-04-15 17:18:09,419 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/white
+2025-04-15 17:18:09,419 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/silver
+2025-04-15 17:18:09,419 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/gray
+2025-04-15 17:18:09,419 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/red
+2025-04-15 17:18:09,419 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/blue
+2025-04-15 17:18:09,420 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/brown
+2025-04-15 17:18:09,420 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/green
+2025-04-15 17:18:09,420 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/beige
+2025-04-15 17:18:09,420 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/gold
+2025-04-15 17:18:09,420 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/yellow
+2025-04-15 17:18:09,421 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/orange
+2025-04-15 17:18:09,421 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/burgundy
+2025-04-15 17:18:09,421 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/purple
+2025-04-15 17:18:09,421 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/bronze
+2025-04-15 17:18:09,422 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/champagne
+2025-04-15 17:18:09,422 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/black
+2025-04-15 17:18:09,422 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/white
+2025-04-15 17:18:09,422 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/silver
+2025-04-15 17:18:09,423 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/gray
+2025-04-15 17:18:09,423 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/red
+2025-04-15 17:18:09,423 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/blue
+2025-04-15 17:18:09,423 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/brown
+2025-04-15 17:18:09,424 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/green
+2025-04-15 17:18:09,424 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/beige
+2025-04-15 17:18:09,424 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/gold
+2025-04-15 17:18:09,424 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/yellow
+2025-04-15 17:18:09,425 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/orange
+2025-04-15 17:18:09,425 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/burgundy
+2025-04-15 17:18:09,425 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/purple
+2025-04-15 17:18:09,425 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/bronze
+2025-04-15 17:18:09,425 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/champagne
+2025-04-15 17:18:09,426 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/black
+2025-04-15 17:18:09,426 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/white
+2025-04-15 17:18:09,426 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/silver
+2025-04-15 17:18:09,426 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/gray
+2025-04-15 17:18:09,426 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/red
+2025-04-15 17:18:09,426 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/blue
+2025-04-15 17:18:09,427 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/brown
+2025-04-15 17:18:09,427 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/green
+2025-04-15 17:18:09,427 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/beige
+2025-04-15 17:18:09,427 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/gold
+2025-04-15 17:18:09,427 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/yellow
+2025-04-15 17:18:09,427 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/orange
+2025-04-15 17:18:09,428 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/burgundy
+2025-04-15 17:18:09,428 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/purple
+2025-04-15 17:18:09,428 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/bronze
+2025-04-15 17:18:09,428 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/champagne
+2025-04-15 17:18:09,428 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/black
+2025-04-15 17:18:09,429 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/white
+2025-04-15 17:18:09,429 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/silver
+2025-04-15 17:18:09,429 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/gray
+2025-04-15 17:18:09,430 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/red
+2025-04-15 17:18:09,430 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/blue
+2025-04-15 17:18:09,430 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/brown
+2025-04-15 17:18:09,431 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/green
+2025-04-15 17:18:09,431 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/beige
+2025-04-15 17:18:09,431 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/gold
+2025-04-15 17:18:09,431 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/yellow
+2025-04-15 17:18:09,431 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/orange
+2025-04-15 17:18:09,432 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/burgundy
+2025-04-15 17:18:09,432 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/purple
+2025-04-15 17:18:09,432 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/bronze
+2025-04-15 17:18:09,432 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/champagne
+2025-04-15 17:18:09,432 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/black
+2025-04-15 17:18:09,433 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/white
+2025-04-15 17:18:09,433 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/silver
+2025-04-15 17:18:09,433 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/gray
+2025-04-15 17:18:09,433 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/red
+2025-04-15 17:18:09,434 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/blue
+2025-04-15 17:18:09,434 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/brown
+2025-04-15 17:18:09,434 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/green
+2025-04-15 17:18:09,434 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/beige
+2025-04-15 17:18:09,434 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/gold
+2025-04-15 17:18:09,435 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/yellow
+2025-04-15 17:18:09,435 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/orange
+2025-04-15 17:18:09,435 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/burgundy
+2025-04-15 17:18:09,435 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/purple
+2025-04-15 17:18:09,435 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/bronze
+2025-04-15 17:18:09,435 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/champagne
+2025-04-15 17:18:09,436 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/black
+2025-04-15 17:18:09,436 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/white
+2025-04-15 17:18:09,436 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/silver
+2025-04-15 17:18:09,436 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/gray
+2025-04-15 17:18:09,436 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/red
+2025-04-15 17:18:09,437 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/blue
+2025-04-15 17:18:09,437 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/brown
+2025-04-15 17:18:09,437 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/green
+2025-04-15 17:18:09,437 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/beige
+2025-04-15 17:18:09,438 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/gold
+2025-04-15 17:18:09,438 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/yellow
+2025-04-15 17:18:09,438 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/orange
+2025-04-15 17:18:09,438 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/burgundy
+2025-04-15 17:18:09,439 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/purple
+2025-04-15 17:18:09,439 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/bronze
+2025-04-15 17:18:09,439 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/champagne
+2025-04-15 17:18:09,439 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/black
+2025-04-15 17:18:09,440 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/white
+2025-04-15 17:18:09,440 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/silver
+2025-04-15 17:18:09,440 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/gray
+2025-04-15 17:18:09,440 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/red
+2025-04-15 17:18:09,441 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/blue
+2025-04-15 17:18:09,441 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/brown
+2025-04-15 17:18:09,441 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/green
+2025-04-15 17:18:09,441 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/beige
+2025-04-15 17:18:09,441 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/gold
+2025-04-15 17:18:09,442 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/yellow
+2025-04-15 17:18:09,442 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/orange
+2025-04-15 17:18:09,442 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/burgundy
+2025-04-15 17:18:09,442 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/purple
+2025-04-15 17:18:09,443 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/bronze
+2025-04-15 17:18:09,443 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/champagne
+2025-04-15 17:18:09,443 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/black
+2025-04-15 17:18:09,443 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/white
+2025-04-15 17:18:09,444 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/silver
+2025-04-15 17:18:09,444 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/gray
+2025-04-15 17:18:09,444 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/red
+2025-04-15 17:18:09,444 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/blue
+2025-04-15 17:18:09,444 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/brown
+2025-04-15 17:18:09,445 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/green
+2025-04-15 17:18:09,445 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/beige
+2025-04-15 17:18:09,445 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/gold
+2025-04-15 17:18:09,445 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/yellow
+2025-04-15 17:18:09,445 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/orange
+2025-04-15 17:18:09,446 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/burgundy
+2025-04-15 17:18:09,446 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/purple
+2025-04-15 17:18:09,446 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/bronze
+2025-04-15 17:18:09,446 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/champagne
+2025-04-15 17:18:09,447 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/black
+2025-04-15 17:18:09,447 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/white
+2025-04-15 17:18:09,447 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/silver
+2025-04-15 17:18:09,447 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/gray
+2025-04-15 17:18:09,447 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/red
+2025-04-15 17:18:09,448 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/blue
+2025-04-15 17:18:09,448 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/brown
+2025-04-15 17:18:09,448 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/green
+2025-04-15 17:18:09,448 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/beige
+2025-04-15 17:18:09,448 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/gold
+2025-04-15 17:18:09,449 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/yellow
+2025-04-15 17:18:09,449 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/orange
+2025-04-15 17:18:09,449 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/burgundy
+2025-04-15 17:18:09,449 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/purple
+2025-04-15 17:18:09,450 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/bronze
+2025-04-15 17:18:09,450 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/champagne
+2025-04-15 17:18:09,450 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/black
+2025-04-15 17:18:09,450 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/white
+2025-04-15 17:18:09,451 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/silver
+2025-04-15 17:18:09,451 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/gray
+2025-04-15 17:18:09,451 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/red
+2025-04-15 17:18:09,451 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/blue
+2025-04-15 17:18:09,451 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/brown
+2025-04-15 17:18:09,452 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/green
+2025-04-15 17:18:09,452 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/beige
+2025-04-15 17:18:09,452 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/gold
+2025-04-15 17:18:09,452 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/yellow
+2025-04-15 17:18:09,453 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/orange
+2025-04-15 17:18:09,453 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/burgundy
+2025-04-15 17:18:09,453 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/purple
+2025-04-15 17:18:09,453 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/bronze
+2025-04-15 17:18:09,453 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/champagne
+2025-04-15 17:18:09,454 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/black
+2025-04-15 17:18:09,454 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/white
+2025-04-15 17:18:09,454 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/silver
+2025-04-15 17:18:09,454 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/gray
+2025-04-15 17:18:09,454 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/red
+2025-04-15 17:18:09,455 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/blue
+2025-04-15 17:18:09,455 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/brown
+2025-04-15 17:18:09,455 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/green
+2025-04-15 17:18:09,455 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/beige
+2025-04-15 17:18:09,455 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/gold
+2025-04-15 17:18:09,455 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/yellow
+2025-04-15 17:18:09,456 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/orange
+2025-04-15 17:18:09,456 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/burgundy
+2025-04-15 17:18:09,456 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/purple
+2025-04-15 17:18:09,456 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/bronze
+2025-04-15 17:18:09,456 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/champagne
+2025-04-15 17:18:09,457 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/black
+2025-04-15 17:18:09,457 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/white
+2025-04-15 17:18:09,457 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/silver
+2025-04-15 17:18:09,457 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/gray
+2025-04-15 17:18:09,458 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/red
+2025-04-15 17:18:09,458 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/blue
+2025-04-15 17:18:09,458 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/brown
+2025-04-15 17:18:09,458 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/green
+2025-04-15 17:18:09,459 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/beige
+2025-04-15 17:18:09,459 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/gold
+2025-04-15 17:18:09,459 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/yellow
+2025-04-15 17:18:09,459 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/orange
+2025-04-15 17:18:09,459 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/burgundy
+2025-04-15 17:18:09,460 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/purple
+2025-04-15 17:18:09,460 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/bronze
+2025-04-15 17:18:09,460 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/champagne
+2025-04-15 17:18:09,460 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/black
+2025-04-15 17:18:09,461 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/white
+2025-04-15 17:18:09,461 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/silver
+2025-04-15 17:18:09,461 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/gray
+2025-04-15 17:18:09,461 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/red
+2025-04-15 17:18:09,461 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/blue
+2025-04-15 17:18:09,461 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/brown
+2025-04-15 17:18:09,462 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/green
+2025-04-15 17:18:09,462 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/beige
+2025-04-15 17:18:09,462 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/gold
+2025-04-15 17:18:09,462 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/yellow
+2025-04-15 17:18:09,462 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/orange
+2025-04-15 17:18:09,463 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/burgundy
+2025-04-15 17:18:09,463 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/purple
+2025-04-15 17:18:09,463 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/bronze
+2025-04-15 17:18:09,463 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/champagne
+2025-04-15 17:18:09,464 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/black
+2025-04-15 17:18:09,464 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/white
+2025-04-15 17:18:09,464 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/silver
+2025-04-15 17:18:09,464 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/gray
+2025-04-15 17:18:09,464 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/red
+2025-04-15 17:18:09,465 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/blue
+2025-04-15 17:18:09,465 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/brown
+2025-04-15 17:18:09,465 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/green
+2025-04-15 17:18:09,465 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/beige
+2025-04-15 17:18:09,466 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/gold
+2025-04-15 17:18:09,466 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/yellow
+2025-04-15 17:18:09,466 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/orange
+2025-04-15 17:18:09,466 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/burgundy
+2025-04-15 17:18:09,466 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/purple
+2025-04-15 17:18:09,467 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/bronze
+2025-04-15 17:18:09,467 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/champagne
+2025-04-15 17:18:09,467 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/black
+2025-04-15 17:18:09,467 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/white
+2025-04-15 17:18:09,467 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/silver
+2025-04-15 17:18:09,468 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/gray
+2025-04-15 17:18:09,468 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/red
+2025-04-15 17:18:09,468 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/blue
+2025-04-15 17:18:09,468 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/brown
+2025-04-15 17:18:09,468 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/green
+2025-04-15 17:18:09,469 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/beige
+2025-04-15 17:18:09,469 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/gold
+2025-04-15 17:18:09,469 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/yellow
+2025-04-15 17:18:09,469 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/orange
+2025-04-15 17:18:09,469 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/burgundy
+2025-04-15 17:18:09,470 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/purple
+2025-04-15 17:18:09,470 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/bronze
+2025-04-15 17:18:09,470 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/champagne
+2025-04-15 17:18:09,470 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/black
+2025-04-15 17:18:09,471 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/white
+2025-04-15 17:18:09,471 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/silver
+2025-04-15 17:18:09,471 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/gray
+2025-04-15 17:18:09,471 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/red
+2025-04-15 17:18:09,471 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/blue
+2025-04-15 17:18:09,472 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/brown
+2025-04-15 17:18:09,472 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/green
+2025-04-15 17:18:09,472 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/beige
+2025-04-15 17:18:09,472 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/gold
+2025-04-15 17:18:09,473 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/yellow
+2025-04-15 17:18:09,473 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/orange
+2025-04-15 17:18:09,473 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/burgundy
+2025-04-15 17:18:09,473 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/purple
+2025-04-15 17:18:09,474 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/bronze
+2025-04-15 17:18:09,474 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/champagne
+2025-04-15 17:18:09,474 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/black
+2025-04-15 17:18:09,474 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/white
+2025-04-15 17:18:09,475 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/silver
+2025-04-15 17:18:09,475 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/gray
+2025-04-15 17:18:09,475 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/red
+2025-04-15 17:18:09,475 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/blue
+2025-04-15 17:18:09,475 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/brown
+2025-04-15 17:18:09,476 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/green
+2025-04-15 17:18:09,476 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/beige
+2025-04-15 17:18:09,476 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/gold
+2025-04-15 17:18:09,476 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/yellow
+2025-04-15 17:18:09,476 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/orange
+2025-04-15 17:18:09,477 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/burgundy
+2025-04-15 17:18:09,477 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/purple
+2025-04-15 17:18:09,477 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/bronze
+2025-04-15 17:18:09,477 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/champagne
+2025-04-15 17:18:09,477 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/black
+2025-04-15 17:18:09,477 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/white
+2025-04-15 17:18:09,478 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/silver
+2025-04-15 17:18:09,478 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/gray
+2025-04-15 17:18:09,478 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/red
+2025-04-15 17:18:09,478 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/blue
+2025-04-15 17:18:09,478 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/brown
+2025-04-15 17:18:09,478 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/green
+2025-04-15 17:18:09,479 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/beige
+2025-04-15 17:18:09,479 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/gold
+2025-04-15 17:18:09,479 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/yellow
+2025-04-15 17:18:09,479 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/orange
+2025-04-15 17:18:09,480 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/burgundy
+2025-04-15 17:18:09,480 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/purple
+2025-04-15 17:18:09,480 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/bronze
+2025-04-15 17:18:09,480 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/champagne
+2025-04-15 17:18:09,480 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/black
+2025-04-15 17:18:09,481 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/white
+2025-04-15 17:18:09,481 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/silver
+2025-04-15 17:18:09,481 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/gray
+2025-04-15 17:18:09,481 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/red
+2025-04-15 17:18:09,481 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/blue
+2025-04-15 17:18:09,481 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/brown
+2025-04-15 17:18:09,482 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/green
+2025-04-15 17:18:09,482 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/beige
+2025-04-15 17:18:09,482 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/gold
+2025-04-15 17:18:09,482 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/yellow
+2025-04-15 17:18:09,482 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/orange
+2025-04-15 17:18:09,482 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/burgundy
+2025-04-15 17:18:09,483 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/purple
+2025-04-15 17:18:09,483 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/bronze
+2025-04-15 17:18:09,483 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/champagne
+2025-04-15 17:18:09,483 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/black
+2025-04-15 17:18:09,484 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/white
+2025-04-15 17:18:09,484 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/silver
+2025-04-15 17:18:09,484 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/gray
+2025-04-15 17:18:09,484 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/red
+2025-04-15 17:18:09,484 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/blue
+2025-04-15 17:18:09,484 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/brown
+2025-04-15 17:18:09,485 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/green
+2025-04-15 17:18:09,485 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/beige
+2025-04-15 17:18:09,485 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/gold
+2025-04-15 17:18:09,485 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/yellow
+2025-04-15 17:18:09,485 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/orange
+2025-04-15 17:18:09,485 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/burgundy
+2025-04-15 17:18:09,486 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/purple
+2025-04-15 17:18:09,486 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/bronze
+2025-04-15 17:18:09,486 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/champagne
+2025-04-15 17:18:09,486 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/black
+2025-04-15 17:18:09,486 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/white
+2025-04-15 17:18:09,487 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/silver
+2025-04-15 17:18:09,487 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/gray
+2025-04-15 17:18:09,487 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/red
+2025-04-15 17:18:09,487 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/blue
+2025-04-15 17:18:09,487 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/brown
+2025-04-15 17:18:09,488 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/green
+2025-04-15 17:18:09,488 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/beige
+2025-04-15 17:18:09,488 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/gold
+2025-04-15 17:18:09,488 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/yellow
+2025-04-15 17:18:09,489 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/orange
+2025-04-15 17:18:09,489 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/burgundy
+2025-04-15 17:18:09,489 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/purple
+2025-04-15 17:18:09,489 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/bronze
+2025-04-15 17:18:09,489 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/champagne
+2025-04-15 17:18:09,490 - INFO - Dataset organization completed successfully!
+2025-04-15 17:18:09,490 - INFO - Dataset preparation complete!
+2025-04-15 17:18:09,491 - INFO - Please review the README.md file in the dataset directory for next steps.
+2025-04-15 22:32:44,300 - INFO - Starting Stanford Cars dataset preparation...
+2025-04-15 22:32:44,301 - INFO - Downloading Stanford Cars dataset from Kaggle...
+2025-04-15 22:32:45,236 - INFO - Dataset downloaded to: /home/lokmane-zed/.cache/kagglehub/datasets/jessicali9530/stanford-cars-dataset/versions/2
+2025-04-15 22:32:45,238 - INFO - Copied cars_annos.mat to dataset directory
+2025-04-15 22:32:45,239 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/black
+2025-04-15 22:32:45,239 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/white
+2025-04-15 22:32:45,240 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/silver
+2025-04-15 22:32:45,240 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/gray
+2025-04-15 22:32:45,240 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/red
+2025-04-15 22:32:45,240 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/blue
+2025-04-15 22:32:45,240 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/brown
+2025-04-15 22:32:45,240 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/green
+2025-04-15 22:32:45,241 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/beige
+2025-04-15 22:32:45,241 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/gold
+2025-04-15 22:32:45,241 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/yellow
+2025-04-15 22:32:45,241 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/orange
+2025-04-15 22:32:45,241 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/burgundy
+2025-04-15 22:32:45,242 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/purple
+2025-04-15 22:32:45,242 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/bronze
+2025-04-15 22:32:45,242 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/toyota/champagne
+2025-04-15 22:32:45,242 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/black
+2025-04-15 22:32:45,242 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/white
+2025-04-15 22:32:45,242 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/silver
+2025-04-15 22:32:45,243 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/gray
+2025-04-15 22:32:45,243 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/red
+2025-04-15 22:32:45,243 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/blue
+2025-04-15 22:32:45,243 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/brown
+2025-04-15 22:32:45,243 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/green
+2025-04-15 22:32:45,244 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/beige
+2025-04-15 22:32:45,244 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/gold
+2025-04-15 22:32:45,244 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/yellow
+2025-04-15 22:32:45,244 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/orange
+2025-04-15 22:32:45,244 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/burgundy
+2025-04-15 22:32:45,245 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/purple
+2025-04-15 22:32:45,245 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/bronze
+2025-04-15 22:32:45,245 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/honda/champagne
+2025-04-15 22:32:45,245 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/black
+2025-04-15 22:32:45,245 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/white
+2025-04-15 22:32:45,246 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/silver
+2025-04-15 22:32:45,246 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/gray
+2025-04-15 22:32:45,246 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/red
+2025-04-15 22:32:45,246 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/blue
+2025-04-15 22:32:45,246 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/brown
+2025-04-15 22:32:45,246 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/green
+2025-04-15 22:32:45,247 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/beige
+2025-04-15 22:32:45,247 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/gold
+2025-04-15 22:32:45,247 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/yellow
+2025-04-15 22:32:45,247 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/orange
+2025-04-15 22:32:45,247 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/burgundy
+2025-04-15 22:32:45,248 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/purple
+2025-04-15 22:32:45,248 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/bronze
+2025-04-15 22:32:45,248 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/ford/champagne
+2025-04-15 22:32:45,248 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/black
+2025-04-15 22:32:45,248 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/white
+2025-04-15 22:32:45,249 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/silver
+2025-04-15 22:32:45,249 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/gray
+2025-04-15 22:32:45,249 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/red
+2025-04-15 22:32:45,249 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/blue
+2025-04-15 22:32:45,249 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/brown
+2025-04-15 22:32:45,250 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/green
+2025-04-15 22:32:45,250 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/beige
+2025-04-15 22:32:45,250 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/gold
+2025-04-15 22:32:45,250 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/yellow
+2025-04-15 22:32:45,250 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/orange
+2025-04-15 22:32:45,251 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/burgundy
+2025-04-15 22:32:45,251 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/purple
+2025-04-15 22:32:45,251 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/bronze
+2025-04-15 22:32:45,251 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/chevrolet/champagne
+2025-04-15 22:32:45,251 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/black
+2025-04-15 22:32:45,252 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/white
+2025-04-15 22:32:45,252 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/silver
+2025-04-15 22:32:45,252 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/gray
+2025-04-15 22:32:45,252 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/red
+2025-04-15 22:32:45,252 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/blue
+2025-04-15 22:32:45,253 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/brown
+2025-04-15 22:32:45,253 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/green
+2025-04-15 22:32:45,253 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/beige
+2025-04-15 22:32:45,253 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/gold
+2025-04-15 22:32:45,253 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/yellow
+2025-04-15 22:32:45,253 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/orange
+2025-04-15 22:32:45,254 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/burgundy
+2025-04-15 22:32:45,254 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/purple
+2025-04-15 22:32:45,254 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/bronze
+2025-04-15 22:32:45,254 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volkswagen/champagne
+2025-04-15 22:32:45,254 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/black
+2025-04-15 22:32:45,255 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/white
+2025-04-15 22:32:45,255 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/silver
+2025-04-15 22:32:45,255 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/gray
+2025-04-15 22:32:45,255 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/red
+2025-04-15 22:32:45,255 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/blue
+2025-04-15 22:32:45,255 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/brown
+2025-04-15 22:32:45,256 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/green
+2025-04-15 22:32:45,256 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/beige
+2025-04-15 22:32:45,256 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/gold
+2025-04-15 22:32:45,256 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/yellow
+2025-04-15 22:32:45,256 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/orange
+2025-04-15 22:32:45,256 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/burgundy
+2025-04-15 22:32:45,257 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/purple
+2025-04-15 22:32:45,257 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/bronze
+2025-04-15 22:32:45,257 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/bmw/champagne
+2025-04-15 22:32:45,257 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/black
+2025-04-15 22:32:45,257 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/white
+2025-04-15 22:32:45,258 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/silver
+2025-04-15 22:32:45,258 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/gray
+2025-04-15 22:32:45,258 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/red
+2025-04-15 22:32:45,258 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/blue
+2025-04-15 22:32:45,258 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/brown
+2025-04-15 22:32:45,258 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/green
+2025-04-15 22:32:45,259 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/beige
+2025-04-15 22:32:45,259 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/gold
+2025-04-15 22:32:45,259 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/yellow
+2025-04-15 22:32:45,259 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/orange
+2025-04-15 22:32:45,259 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/burgundy
+2025-04-15 22:32:45,260 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/purple
+2025-04-15 22:32:45,260 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/bronze
+2025-04-15 22:32:45,260 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mercedes-benz/champagne
+2025-04-15 22:32:45,260 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/black
+2025-04-15 22:32:45,261 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/white
+2025-04-15 22:32:45,261 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/silver
+2025-04-15 22:32:45,261 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/gray
+2025-04-15 22:32:45,261 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/red
+2025-04-15 22:32:45,261 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/blue
+2025-04-15 22:32:45,262 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/brown
+2025-04-15 22:32:45,262 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/green
+2025-04-15 22:32:45,262 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/beige
+2025-04-15 22:32:45,262 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/gold
+2025-04-15 22:32:45,262 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/yellow
+2025-04-15 22:32:45,262 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/orange
+2025-04-15 22:32:45,263 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/burgundy
+2025-04-15 22:32:45,263 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/purple
+2025-04-15 22:32:45,263 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/bronze
+2025-04-15 22:32:45,263 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/audi/champagne
+2025-04-15 22:32:45,263 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/black
+2025-04-15 22:32:45,264 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/white
+2025-04-15 22:32:45,264 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/silver
+2025-04-15 22:32:45,264 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/gray
+2025-04-15 22:32:45,264 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/red
+2025-04-15 22:32:45,264 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/blue
+2025-04-15 22:32:45,264 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/brown
+2025-04-15 22:32:45,265 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/green
+2025-04-15 22:32:45,265 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/beige
+2025-04-15 22:32:45,265 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/gold
+2025-04-15 22:32:45,266 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/yellow
+2025-04-15 22:32:45,266 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/orange
+2025-04-15 22:32:45,266 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/burgundy
+2025-04-15 22:32:45,266 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/purple
+2025-04-15 22:32:45,266 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/bronze
+2025-04-15 22:32:45,267 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/hyundai/champagne
+2025-04-15 22:32:45,267 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/black
+2025-04-15 22:32:45,267 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/white
+2025-04-15 22:32:45,267 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/silver
+2025-04-15 22:32:45,267 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/gray
+2025-04-15 22:32:45,268 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/red
+2025-04-15 22:32:45,268 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/blue
+2025-04-15 22:32:45,268 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/brown
+2025-04-15 22:32:45,268 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/green
+2025-04-15 22:32:45,268 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/beige
+2025-04-15 22:32:45,269 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/gold
+2025-04-15 22:32:45,269 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/yellow
+2025-04-15 22:32:45,269 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/orange
+2025-04-15 22:32:45,269 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/burgundy
+2025-04-15 22:32:45,269 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/purple
+2025-04-15 22:32:45,269 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/bronze
+2025-04-15 22:32:45,270 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/kia/champagne
+2025-04-15 22:32:45,270 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/black
+2025-04-15 22:32:45,270 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/white
+2025-04-15 22:32:45,270 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/silver
+2025-04-15 22:32:45,270 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/gray
+2025-04-15 22:32:45,271 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/red
+2025-04-15 22:32:45,271 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/blue
+2025-04-15 22:32:45,271 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/brown
+2025-04-15 22:32:45,271 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/green
+2025-04-15 22:32:45,271 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/beige
+2025-04-15 22:32:45,271 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/gold
+2025-04-15 22:32:45,272 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/yellow
+2025-04-15 22:32:45,272 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/orange
+2025-04-15 22:32:45,272 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/burgundy
+2025-04-15 22:32:45,272 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/purple
+2025-04-15 22:32:45,272 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/bronze
+2025-04-15 22:32:45,273 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/nissan/champagne
+2025-04-15 22:32:45,273 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/black
+2025-04-15 22:32:45,273 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/white
+2025-04-15 22:32:45,273 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/silver
+2025-04-15 22:32:45,273 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/gray
+2025-04-15 22:32:45,274 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/red
+2025-04-15 22:32:45,274 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/blue
+2025-04-15 22:32:45,274 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/brown
+2025-04-15 22:32:45,274 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/green
+2025-04-15 22:32:45,274 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/beige
+2025-04-15 22:32:45,274 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/gold
+2025-04-15 22:32:45,275 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/yellow
+2025-04-15 22:32:45,275 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/orange
+2025-04-15 22:32:45,275 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/burgundy
+2025-04-15 22:32:45,275 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/purple
+2025-04-15 22:32:45,275 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/bronze
+2025-04-15 22:32:45,276 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mazda/champagne
+2025-04-15 22:32:45,276 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/black
+2025-04-15 22:32:45,276 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/white
+2025-04-15 22:32:45,276 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/silver
+2025-04-15 22:32:45,276 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/gray
+2025-04-15 22:32:45,277 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/red
+2025-04-15 22:32:45,277 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/blue
+2025-04-15 22:32:45,277 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/brown
+2025-04-15 22:32:45,277 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/green
+2025-04-15 22:32:45,277 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/beige
+2025-04-15 22:32:45,277 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/gold
+2025-04-15 22:32:45,278 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/yellow
+2025-04-15 22:32:45,278 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/orange
+2025-04-15 22:32:45,278 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/burgundy
+2025-04-15 22:32:45,278 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/purple
+2025-04-15 22:32:45,278 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/bronze
+2025-04-15 22:32:45,279 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/subaru/champagne
+2025-04-15 22:32:45,279 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/black
+2025-04-15 22:32:45,279 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/white
+2025-04-15 22:32:45,279 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/silver
+2025-04-15 22:32:45,279 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/gray
+2025-04-15 22:32:45,280 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/red
+2025-04-15 22:32:45,280 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/blue
+2025-04-15 22:32:45,280 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/brown
+2025-04-15 22:32:45,280 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/green
+2025-04-15 22:32:45,280 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/beige
+2025-04-15 22:32:45,280 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/gold
+2025-04-15 22:32:45,281 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/yellow
+2025-04-15 22:32:45,281 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/orange
+2025-04-15 22:32:45,281 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/burgundy
+2025-04-15 22:32:45,281 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/purple
+2025-04-15 22:32:45,281 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/bronze
+2025-04-15 22:32:45,282 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/lexus/champagne
+2025-04-15 22:32:45,282 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/black
+2025-04-15 22:32:45,282 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/white
+2025-04-15 22:32:45,282 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/silver
+2025-04-15 22:32:45,282 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/gray
+2025-04-15 22:32:45,282 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/red
+2025-04-15 22:32:45,283 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/blue
+2025-04-15 22:32:45,283 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/brown
+2025-04-15 22:32:45,283 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/green
+2025-04-15 22:32:45,283 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/beige
+2025-04-15 22:32:45,283 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/gold
+2025-04-15 22:32:45,283 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/yellow
+2025-04-15 22:32:45,284 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/orange
+2025-04-15 22:32:45,284 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/burgundy
+2025-04-15 22:32:45,284 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/purple
+2025-04-15 22:32:45,284 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/bronze
+2025-04-15 22:32:45,284 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/porsche/champagne
+2025-04-15 22:32:45,285 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/black
+2025-04-15 22:32:45,285 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/white
+2025-04-15 22:32:45,285 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/silver
+2025-04-15 22:32:45,285 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/gray
+2025-04-15 22:32:45,285 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/red
+2025-04-15 22:32:45,286 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/blue
+2025-04-15 22:32:45,286 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/brown
+2025-04-15 22:32:45,286 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/green
+2025-04-15 22:32:45,286 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/beige
+2025-04-15 22:32:45,286 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/gold
+2025-04-15 22:32:45,286 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/yellow
+2025-04-15 22:32:45,287 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/orange
+2025-04-15 22:32:45,287 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/burgundy
+2025-04-15 22:32:45,287 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/purple
+2025-04-15 22:32:45,287 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/bronze
+2025-04-15 22:32:45,287 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/tesla/champagne
+2025-04-15 22:32:45,288 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/black
+2025-04-15 22:32:45,288 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/white
+2025-04-15 22:32:45,288 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/silver
+2025-04-15 22:32:45,288 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/gray
+2025-04-15 22:32:45,288 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/red
+2025-04-15 22:32:45,289 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/blue
+2025-04-15 22:32:45,289 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/brown
+2025-04-15 22:32:45,289 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/green
+2025-04-15 22:32:45,289 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/beige
+2025-04-15 22:32:45,289 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/gold
+2025-04-15 22:32:45,289 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/yellow
+2025-04-15 22:32:45,290 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/orange
+2025-04-15 22:32:45,290 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/burgundy
+2025-04-15 22:32:45,290 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/purple
+2025-04-15 22:32:45,290 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/bronze
+2025-04-15 22:32:45,290 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/volvo/champagne
+2025-04-15 22:32:45,291 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/black
+2025-04-15 22:32:45,291 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/white
+2025-04-15 22:32:45,291 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/silver
+2025-04-15 22:32:45,291 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/gray
+2025-04-15 22:32:45,291 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/red
+2025-04-15 22:32:45,292 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/blue
+2025-04-15 22:32:45,292 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/brown
+2025-04-15 22:32:45,292 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/green
+2025-04-15 22:32:45,292 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/beige
+2025-04-15 22:32:45,293 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/gold
+2025-04-15 22:32:45,293 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/yellow
+2025-04-15 22:32:45,294 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/orange
+2025-04-15 22:32:45,294 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/burgundy
+2025-04-15 22:32:45,294 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/purple
+2025-04-15 22:32:45,295 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/bronze
+2025-04-15 22:32:45,295 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/land rover/champagne
+2025-04-15 22:32:45,295 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/black
+2025-04-15 22:32:45,296 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/white
+2025-04-15 22:32:45,296 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/silver
+2025-04-15 22:32:45,296 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/gray
+2025-04-15 22:32:45,297 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/red
+2025-04-15 22:32:45,297 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/blue
+2025-04-15 22:32:45,297 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/brown
+2025-04-15 22:32:45,297 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/green
+2025-04-15 22:32:45,297 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/beige
+2025-04-15 22:32:45,298 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/gold
+2025-04-15 22:32:45,298 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/yellow
+2025-04-15 22:32:45,298 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/orange
+2025-04-15 22:32:45,298 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/burgundy
+2025-04-15 22:32:45,298 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/purple
+2025-04-15 22:32:45,298 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/bronze
+2025-04-15 22:32:45,299 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/jeep/champagne
+2025-04-15 22:32:45,299 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/black
+2025-04-15 22:32:45,299 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/white
+2025-04-15 22:32:45,299 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/silver
+2025-04-15 22:32:45,299 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/gray
+2025-04-15 22:32:45,300 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/red
+2025-04-15 22:32:45,300 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/blue
+2025-04-15 22:32:45,300 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/brown
+2025-04-15 22:32:45,300 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/green
+2025-04-15 22:32:45,300 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/beige
+2025-04-15 22:32:45,300 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/gold
+2025-04-15 22:32:45,301 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/yellow
+2025-04-15 22:32:45,301 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/orange
+2025-04-15 22:32:45,301 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/burgundy
+2025-04-15 22:32:45,301 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/purple
+2025-04-15 22:32:45,301 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/bronze
+2025-04-15 22:32:45,301 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/renault/champagne
+2025-04-15 22:32:45,302 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/black
+2025-04-15 22:32:45,302 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/white
+2025-04-15 22:32:45,302 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/silver
+2025-04-15 22:32:45,302 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/gray
+2025-04-15 22:32:45,302 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/red
+2025-04-15 22:32:45,303 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/blue
+2025-04-15 22:32:45,303 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/brown
+2025-04-15 22:32:45,303 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/green
+2025-04-15 22:32:45,303 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/beige
+2025-04-15 22:32:45,303 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/gold
+2025-04-15 22:32:45,303 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/yellow
+2025-04-15 22:32:45,303 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/orange
+2025-04-15 22:32:45,304 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/burgundy
+2025-04-15 22:32:45,304 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/purple
+2025-04-15 22:32:45,304 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/bronze
+2025-04-15 22:32:45,304 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/peugeot/champagne
+2025-04-15 22:32:45,304 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/black
+2025-04-15 22:32:45,305 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/white
+2025-04-15 22:32:45,305 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/silver
+2025-04-15 22:32:45,305 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/gray
+2025-04-15 22:32:45,305 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/red
+2025-04-15 22:32:45,305 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/blue
+2025-04-15 22:32:45,306 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/brown
+2025-04-15 22:32:45,306 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/green
+2025-04-15 22:32:45,306 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/beige
+2025-04-15 22:32:45,306 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/gold
+2025-04-15 22:32:45,306 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/yellow
+2025-04-15 22:32:45,306 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/orange
+2025-04-15 22:32:45,307 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/burgundy
+2025-04-15 22:32:45,307 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/purple
+2025-04-15 22:32:45,307 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/bronze
+2025-04-15 22:32:45,307 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/citroën/champagne
+2025-04-15 22:32:45,307 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/black
+2025-04-15 22:32:45,308 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/white
+2025-04-15 22:32:45,308 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/silver
+2025-04-15 22:32:45,308 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/gray
+2025-04-15 22:32:45,308 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/red
+2025-04-15 22:32:45,308 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/blue
+2025-04-15 22:32:45,308 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/brown
+2025-04-15 22:32:45,309 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/green
+2025-04-15 22:32:45,309 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/beige
+2025-04-15 22:32:45,309 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/gold
+2025-04-15 22:32:45,309 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/yellow
+2025-04-15 22:32:45,309 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/orange
+2025-04-15 22:32:45,309 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/burgundy
+2025-04-15 22:32:45,310 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/purple
+2025-04-15 22:32:45,310 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/bronze
+2025-04-15 22:32:45,310 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/fiat/champagne
+2025-04-15 22:32:45,310 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/black
+2025-04-15 22:32:45,310 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/white
+2025-04-15 22:32:45,311 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/silver
+2025-04-15 22:32:45,311 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/gray
+2025-04-15 22:32:45,311 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/red
+2025-04-15 22:32:45,311 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/blue
+2025-04-15 22:32:45,311 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/brown
+2025-04-15 22:32:45,311 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/green
+2025-04-15 22:32:45,312 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/beige
+2025-04-15 22:32:45,312 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/gold
+2025-04-15 22:32:45,312 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/yellow
+2025-04-15 22:32:45,312 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/orange
+2025-04-15 22:32:45,312 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/burgundy
+2025-04-15 22:32:45,312 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/purple
+2025-04-15 22:32:45,313 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/bronze
+2025-04-15 22:32:45,313 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/alfa romeo/champagne
+2025-04-15 22:32:45,313 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/black
+2025-04-15 22:32:45,313 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/white
+2025-04-15 22:32:45,313 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/silver
+2025-04-15 22:32:45,314 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/gray
+2025-04-15 22:32:45,314 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/red
+2025-04-15 22:32:45,314 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/blue
+2025-04-15 22:32:45,314 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/brown
+2025-04-15 22:32:45,314 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/green
+2025-04-15 22:32:45,314 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/beige
+2025-04-15 22:32:45,315 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/gold
+2025-04-15 22:32:45,315 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/yellow
+2025-04-15 22:32:45,315 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/orange
+2025-04-15 22:32:45,315 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/burgundy
+2025-04-15 22:32:45,315 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/purple
+2025-04-15 22:32:45,315 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/bronze
+2025-04-15 22:32:45,316 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/seat/champagne
+2025-04-15 22:32:45,316 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/black
+2025-04-15 22:32:45,316 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/white
+2025-04-15 22:32:45,316 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/silver
+2025-04-15 22:32:45,316 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/gray
+2025-04-15 22:32:45,316 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/red
+2025-04-15 22:32:45,317 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/blue
+2025-04-15 22:32:45,317 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/brown
+2025-04-15 22:32:45,317 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/green
+2025-04-15 22:32:45,317 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/beige
+2025-04-15 22:32:45,317 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/gold
+2025-04-15 22:32:45,317 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/yellow
+2025-04-15 22:32:45,318 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/orange
+2025-04-15 22:32:45,318 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/burgundy
+2025-04-15 22:32:45,318 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/purple
+2025-04-15 22:32:45,319 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/bronze
+2025-04-15 22:32:45,320 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/skoda/champagne
+2025-04-15 22:32:45,320 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/black
+2025-04-15 22:32:45,320 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/white
+2025-04-15 22:32:45,321 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/silver
+2025-04-15 22:32:45,321 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/gray
+2025-04-15 22:32:45,322 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/red
+2025-04-15 22:32:45,322 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/blue
+2025-04-15 22:32:45,323 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/brown
+2025-04-15 22:32:45,323 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/green
+2025-04-15 22:32:45,324 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/beige
+2025-04-15 22:32:45,325 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/gold
+2025-04-15 22:32:45,325 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/yellow
+2025-04-15 22:32:45,326 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/orange
+2025-04-15 22:32:45,326 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/burgundy
+2025-04-15 22:32:45,327 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/purple
+2025-04-15 22:32:45,327 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/bronze
+2025-04-15 22:32:45,328 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/dacia/champagne
+2025-04-15 22:32:45,329 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/black
+2025-04-15 22:32:45,329 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/white
+2025-04-15 22:32:45,330 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/silver
+2025-04-15 22:32:45,330 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/gray
+2025-04-15 22:32:45,331 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/red
+2025-04-15 22:32:45,331 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/blue
+2025-04-15 22:32:45,332 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/brown
+2025-04-15 22:32:45,332 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/green
+2025-04-15 22:32:45,333 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/beige
+2025-04-15 22:32:45,334 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/gold
+2025-04-15 22:32:45,334 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/yellow
+2025-04-15 22:32:45,334 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/orange
+2025-04-15 22:32:45,335 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/burgundy
+2025-04-15 22:32:45,335 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/purple
+2025-04-15 22:32:45,336 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/bronze
+2025-04-15 22:32:45,336 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/opel/champagne
+2025-04-15 22:32:45,336 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/black
+2025-04-15 22:32:45,337 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/white
+2025-04-15 22:32:45,337 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/silver
+2025-04-15 22:32:45,337 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/gray
+2025-04-15 22:32:45,337 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/red
+2025-04-15 22:32:45,338 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/blue
+2025-04-15 22:32:45,338 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/brown
+2025-04-15 22:32:45,338 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/green
+2025-04-15 22:32:45,338 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/beige
+2025-04-15 22:32:45,338 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/gold
+2025-04-15 22:32:45,338 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/yellow
+2025-04-15 22:32:45,338 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/orange
+2025-04-15 22:32:45,339 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/burgundy
+2025-04-15 22:32:45,339 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/purple
+2025-04-15 22:32:45,339 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/bronze
+2025-04-15 22:32:45,339 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/mitsubishi/champagne
+2025-04-15 22:32:45,339 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/black
+2025-04-15 22:32:45,339 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/white
+2025-04-15 22:32:45,339 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/silver
+2025-04-15 22:32:45,340 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/gray
+2025-04-15 22:32:45,340 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/red
+2025-04-15 22:32:45,340 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/blue
+2025-04-15 22:32:45,340 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/brown
+2025-04-15 22:32:45,340 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/green
+2025-04-15 22:32:45,341 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/beige
+2025-04-15 22:32:45,341 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/gold
+2025-04-15 22:32:45,341 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/yellow
+2025-04-15 22:32:45,341 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/orange
+2025-04-15 22:32:45,341 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/burgundy
+2025-04-15 22:32:45,342 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/purple
+2025-04-15 22:32:45,342 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/bronze
+2025-04-15 22:32:45,342 - INFO - Created directory: /home/lokmane-zed/project/DzVisionAi/data/vehicle_dataset/suzuki/champagne
+2025-04-15 22:32:45,343 - INFO - Dataset organization completed successfully!
+2025-04-15 22:32:45,343 - INFO - Dataset preparation complete!
+2025-04-15 22:32:45,344 - INFO - Please review the README.md file in the dataset directory for next steps.

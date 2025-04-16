@@ -1,0 +1,15 @@
+{"time":"2025-04-15T22:31:20.884802306+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/lokmane-zed/project/DzVisionAi/back-end/wandb/run-20250415_223120-whwnyjpj/logs/debug-core.log"}
+{"time":"2025-04-15T22:31:21.684771145+01:00","level":"INFO","msg":"created new stream","id":"whwnyjpj"}
+{"time":"2025-04-15T22:31:21.684843986+01:00","level":"INFO","msg":"stream: started","id":"whwnyjpj"}
+{"time":"2025-04-15T22:31:21.684877712+01:00","level":"INFO","msg":"handler: started","stream_id":"whwnyjpj"}
+{"time":"2025-04-15T22:31:21.684877882+01:00","level":"INFO","msg":"sender: started","stream_id":"whwnyjpj"}
+{"time":"2025-04-15T22:31:21.684909101+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"whwnyjpj"}
+{"time":"2025-04-15T22:31:22.028279731+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-15T22:31:23.074751008+01:00","level":"INFO","msg":"stream: closing","id":"whwnyjpj"}
+{"time":"2025-04-15T22:31:23.074804815+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-15T22:31:23.074847843+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-15T22:31:24.947199364+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-15T22:31:25.868954191+01:00","level":"INFO","msg":"handler: closed","stream_id":"whwnyjpj"}
+{"time":"2025-04-15T22:31:25.869017369+01:00","level":"INFO","msg":"sender: closed","stream_id":"whwnyjpj"}
+{"time":"2025-04-15T22:31:25.869006668+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"whwnyjpj"}
+{"time":"2025-04-15T22:31:25.869112612+01:00","level":"INFO","msg":"stream: closed","id":"whwnyjpj"}
