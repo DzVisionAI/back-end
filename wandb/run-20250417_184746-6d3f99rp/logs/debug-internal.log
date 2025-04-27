@@ -1,0 +1,15 @@
+{"time":"2025-04-17T18:47:46.798004327+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/lokmane-zed/project/DzVisionAi/back-end/wandb/run-20250417_184746-6d3f99rp/logs/debug-core.log"}
+{"time":"2025-04-17T18:47:47.407835627+01:00","level":"INFO","msg":"created new stream","id":"6d3f99rp"}
+{"time":"2025-04-17T18:47:47.407900692+01:00","level":"INFO","msg":"stream: started","id":"6d3f99rp"}
+{"time":"2025-04-17T18:47:47.407977839+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"6d3f99rp"}
+{"time":"2025-04-17T18:47:47.40800681+01:00","level":"INFO","msg":"sender: started","stream_id":"6d3f99rp"}
+{"time":"2025-04-17T18:47:47.408043208+01:00","level":"INFO","msg":"handler: started","stream_id":"6d3f99rp"}
+{"time":"2025-04-17T18:47:47.753055906+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-17T18:47:56.551922044+01:00","level":"INFO","msg":"stream: closing","id":"6d3f99rp"}
+{"time":"2025-04-17T18:47:56.551967472+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-17T18:47:56.552077419+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-17T18:48:21.978483255+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-17T18:48:51.328535534+01:00","level":"INFO","msg":"handler: closed","stream_id":"6d3f99rp"}
+{"time":"2025-04-17T18:48:51.32859802+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"6d3f99rp"}
+{"time":"2025-04-17T18:48:51.328625205+01:00","level":"INFO","msg":"sender: closed","stream_id":"6d3f99rp"}
+{"time":"2025-04-17T18:48:51.328716875+01:00","level":"INFO","msg":"stream: closed","id":"6d3f99rp"}

@@ -1,0 +1,15 @@
+{"time":"2025-04-17T03:05:28.254584599+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/lokmane-zed/project/DzVisionAi/back-end/wandb/run-20250417_030528-cb1rs70e/logs/debug-core.log"}
+{"time":"2025-04-17T03:05:28.952499322+01:00","level":"INFO","msg":"created new stream","id":"cb1rs70e"}
+{"time":"2025-04-17T03:05:28.952558941+01:00","level":"INFO","msg":"stream: started","id":"cb1rs70e"}
+{"time":"2025-04-17T03:05:28.952607603+01:00","level":"INFO","msg":"handler: started","stream_id":"cb1rs70e"}
+{"time":"2025-04-17T03:05:28.952628081+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"cb1rs70e"}
+{"time":"2025-04-17T03:05:28.952628076+01:00","level":"INFO","msg":"sender: started","stream_id":"cb1rs70e"}
+{"time":"2025-04-17T03:05:29.567047549+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-17T03:05:37.657060567+01:00","level":"INFO","msg":"stream: closing","id":"cb1rs70e"}
+{"time":"2025-04-17T03:05:37.657098697+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-17T03:05:37.657222781+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-17T03:06:21.123734004+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-17T03:06:33.410402252+01:00","level":"INFO","msg":"handler: closed","stream_id":"cb1rs70e"}
+{"time":"2025-04-17T03:06:33.410473552+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"cb1rs70e"}
+{"time":"2025-04-17T03:06:33.410481527+01:00","level":"INFO","msg":"sender: closed","stream_id":"cb1rs70e"}
+{"time":"2025-04-17T03:06:33.410590749+01:00","level":"INFO","msg":"stream: closed","id":"cb1rs70e"}

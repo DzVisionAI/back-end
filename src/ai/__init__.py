@@ -3,6 +3,7 @@ AI package for license plate detection and vehicle tracking.
 This package contains modules for:
 - License plate detection and reading
 - Vehicle tracking
+- Vehicle attribute detection (color and make)
 - Utility functions for processing detections
 """
 
@@ -18,23 +19,61 @@ from PIL import Image
 import os
 import json
 from pathlib import Path
+import torch.nn as nn
+
+# Load configurations
+def load_configs():
+    """Load color and make configurations"""
+    config_dir = os.path.join(os.path.dirname(__file__), 'config')
+    with open(os.path.join(config_dir, 'colors.json'), 'r') as f:
+        colors = json.load(f)
+    with open(os.path.join(config_dir, 'makes.json'), 'r') as f:
+        makes = json.load(f)
+    return colors, makes
 
 # Load pre-trained models and configurations
 def load_vehicle_attribute_model():
-    """Load pre-trained ResNet model for vehicle attribute detection"""
-    model = models.resnet50(pretrained=True)
-    num_ftrs = model.fc.in_features
+    """Load pre-trained model for vehicle attribute detection"""
+    model = models.efficientnet_b0(pretrained=True)
     
-    # Modify the final layer for our specific tasks
-    # Color classes + Make classes
-    model.fc = torch.nn.Sequential(
-        torch.nn.Linear(num_ftrs, 512),
-        torch.nn.ReLU(),
-        torch.nn.Dropout(0.2),
-        torch.nn.Linear(512, 256),
-        torch.nn.ReLU(),
-        torch.nn.Dropout(0.2),
-        torch.nn.Linear(256, 128)
+    # Freeze early layers
+    for param in list(model.parameters())[:-20]:
+        param.requires_grad = False
+    
+    # Modified head with attention for both color and make classification
+    class AttentionHead(nn.Module):
+        def __init__(self, in_features, num_classes):
+            super().__init__()
+            self.attention = nn.Sequential(
+                nn.Linear(in_features, 512),
+                nn.ReLU(),
+                nn.Linear(512, 1)
+            )
+            self.fc = nn.Sequential(
+                nn.Linear(in_features, 512),
+                nn.ReLU(),
+                nn.Dropout(0.3),
+                nn.Linear(512, num_classes)
+            )
+        
+        def forward(self, x):
+            attention_weights = torch.sigmoid(self.attention(x))
+            weighted_features = x * attention_weights
+            return self.fc(weighted_features)
+    
+    # Replace classifier
+    in_features = model._fc.in_features
+    model._fc = nn.Identity()
+    
+    # Load configurations
+    colors, makes = load_configs()
+    
+    model = nn.Sequential(
+        model,
+        nn.Sequential(
+            AttentionHead(in_features, len(colors)),
+            AttentionHead(in_features, len(makes))
+        )
     )
     
     # Load the trained weights if they exist
@@ -43,118 +82,7 @@ def load_vehicle_attribute_model():
         model.load_state_dict(torch.load(model_path))
     
     model.eval()
-    return model
-
-# Load color and make labels
-def load_labels():
-    """Load color and make labels from JSON configuration"""
-    config_path = os.path.join(os.path.dirname(__file__), 'config')
-    
-    with open(os.path.join(config_path, 'colors.json'), 'r') as f:
-        colors = json.load(f)
-    
-    with open(os.path.join(config_path, 'makes.json'), 'r') as f:
-        makes = json.load(f)
-    
-    return colors, makes
-
-# Initialize the model and labels globally
-try:
-    vehicle_model = load_vehicle_attribute_model()
-    color_labels, make_labels = load_labels()
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    vehicle_model = vehicle_model.to(device)
-    
-    # Define image preprocessing
-    preprocess = transforms.Compose([
-        transforms.Resize((224, 224)),
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-    ])
-except Exception as e:
-    print(f"Error initializing vehicle attribute detection: {str(e)}")
-    raise
-
-def preprocess_vehicle_image(image):
-    """Preprocess vehicle image for the model"""
-    # Convert BGR to RGB
-    if isinstance(image, np.ndarray):
-        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        image = Image.fromarray(image)
-    
-    # Apply preprocessing
-    image = preprocess(image)
-    return image.unsqueeze(0)
-
-def detect_vehicle_color(image):
-    """
-    Detect the color of a vehicle in the image.
-    
-    Args:
-        image: numpy array (BGR format) containing the vehicle image
-        
-    Returns:
-        str: Detected color name
-    """
-    try:
-        # Preprocess image
-        input_tensor = preprocess_vehicle_image(image)
-        input_tensor = input_tensor.to(device)
-        
-        # Get model prediction
-        with torch.no_grad():
-            features = vehicle_model(input_tensor)
-            color_features = features[:, :len(color_labels)]
-            color_probs = torch.softmax(color_features, dim=1)
-            color_idx = torch.argmax(color_probs).item()
-        
-        # Get color name with confidence
-        color_name = color_labels[color_idx]
-        confidence = color_probs[0][color_idx].item()
-        
-        # Only return color if confidence is high enough
-        if confidence > 0.6:  # Confidence threshold
-            return color_name
-        return None
-        
-    except Exception as e:
-        print(f"Error in color detection: {str(e)}")
-        return None
-
-def detect_vehicle_make(image):
-    """
-    Detect the make of a vehicle in the image.
-    
-    Args:
-        image: numpy array (BGR format) containing the vehicle image
-        
-    Returns:
-        str: Detected vehicle make
-    """
-    try:
-        # Preprocess image
-        input_tensor = preprocess_vehicle_image(image)
-        input_tensor = input_tensor.to(device)
-        
-        # Get model prediction
-        with torch.no_grad():
-            features = vehicle_model(input_tensor)
-            make_features = features[:, len(color_labels):]
-            make_probs = torch.softmax(make_features, dim=1)
-            make_idx = torch.argmax(make_probs).item()
-        
-        # Get make name with confidence
-        make_name = make_labels[make_idx]
-        confidence = make_probs[0][make_idx].item()
-        
-        # Only return make if confidence is high enough
-        if confidence > 0.7:  # Higher threshold for make detection
-            return make_name
-        return None
-        
-    except Exception as e:
-        print(f"Error in make detection: {str(e)}")
-        return None
+    return model, colors, makes
 
 # Create necessary directories and configuration files
 def initialize_ai_files():
@@ -194,5 +122,76 @@ def initialize_ai_files():
 
 # Initialize files when module is imported
 initialize_ai_files()
+
+# Initialize the model and configurations globally
+try:
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    vehicle_model, COLORS, MAKES = load_vehicle_attribute_model()
+    vehicle_model = vehicle_model.to(device)
+    
+    # Define image preprocessing
+    preprocess = transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+    ])
+except Exception as e:
+    print(f"Error initializing vehicle attribute detection: {str(e)}")
+    raise
+
+def preprocess_vehicle_image(image):
+    """Preprocess vehicle image for the model"""
+    # Convert BGR to RGB if needed
+    if isinstance(image, np.ndarray):
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        image = Image.fromarray(image)
+    
+    # Apply preprocessing
+    image = preprocess(image)
+    return image.unsqueeze(0)
+
+def detect_vehicle_color(image):
+    """Detect the color of a vehicle from its image"""
+    try:
+        # Preprocess image
+        image_tensor = preprocess_vehicle_image(image).to(device)
+        
+        # Get model predictions
+        with torch.no_grad():
+            color_output, _ = vehicle_model(image_tensor)
+            color_probs = torch.softmax(color_output, dim=1)
+            color_idx = torch.argmax(color_probs, dim=1).item()
+            confidence = color_probs[0][color_idx].item()
+        
+        # Return color if confidence is high enough
+        if confidence > 0.5:  # Adjust threshold as needed
+            return COLORS[color_idx]
+        return None
+        
+    except Exception as e:
+        print(f"Error detecting vehicle color: {str(e)}")
+        return None
+
+def detect_vehicle_make(image):
+    """Detect the make of a vehicle from its image"""
+    try:
+        # Preprocess image
+        image_tensor = preprocess_vehicle_image(image).to(device)
+        
+        # Get model predictions
+        with torch.no_grad():
+            _, make_output = vehicle_model(image_tensor)
+            make_probs = torch.softmax(make_output, dim=1)
+            make_idx = torch.argmax(make_probs, dim=1).item()
+            confidence = make_probs[0][make_idx].item()
+        
+        # Return make if confidence is high enough
+        if confidence > 0.5:  # Adjust threshold as needed
+            return MAKES[make_idx]
+        return None
+        
+    except Exception as e:
+        print(f"Error detecting vehicle make: {str(e)}")
+        return None
 
 __all__ = ['LicensePlateDetector', 'VehicleTracker', 'get_car', 'read_license_plate'] 

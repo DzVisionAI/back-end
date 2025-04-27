@@ -1,0 +1,7 @@
+{"time":"2025-04-17T03:07:48.636178043+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/home/lokmane-zed/project/DzVisionAi/back-end/wandb/run-20250417_030748-8ltst6l6/logs/debug-core.log"}
+{"time":"2025-04-17T03:07:49.282492453+01:00","level":"INFO","msg":"created new stream","id":"8ltst6l6"}
+{"time":"2025-04-17T03:07:49.282570817+01:00","level":"INFO","msg":"stream: started","id":"8ltst6l6"}
+{"time":"2025-04-17T03:07:49.285623922+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"8ltst6l6"}
+{"time":"2025-04-17T03:07:49.28569101+01:00","level":"INFO","msg":"sender: started","stream_id":"8ltst6l6"}
+{"time":"2025-04-17T03:07:49.285727301+01:00","level":"INFO","msg":"handler: started","stream_id":"8ltst6l6"}
+{"time":"2025-04-17T03:07:49.775241348+01:00","level":"INFO","msg":"Starting system monitor"}
