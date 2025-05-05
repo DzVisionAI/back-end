@@ -32,34 +32,30 @@ logging.basicConfig(
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 CONFIG_DIR = os.path.join(CURRENT_DIR, 'config')
 COLORS_PATH = os.path.join(CONFIG_DIR, 'colors.json')
-MAKES_PATH = os.path.join(CONFIG_DIR, 'makes.json')
 
 # Load configurations
 def load_configs():
-    """Load color and make configurations"""
+    """Load color configurations only"""
     try:
         with open(COLORS_PATH, 'r') as f:
             colors = json.load(f)
-        with open(MAKES_PATH, 'r') as f:
-            makes = json.load(f)
-        return colors, makes
+        return colors
     except Exception as e:
-        logging.error(f"Error loading configurations: {str(e)}")
+        logging.error(f"Error loading color configurations: {str(e)}")
         raise
 
 # Load configurations globally
 try:
-    COLORS, MAKES = load_configs()
-    logging.info(f"Loaded {len(COLORS)} colors and {len(MAKES)} makes from configuration")
+    COLORS = load_configs()
+    logging.info(f"Loaded {len(COLORS)} colors from configuration")
 except Exception as e:
     logging.error(f"Failed to load configurations: {str(e)}")
     raise
 
 class VehicleDataset(Dataset):
-    def __init__(self, image_paths, color_labels, make_labels, transform=None, augment=False):
+    def __init__(self, image_paths, color_labels, transform=None, augment=False):
         self.image_paths = image_paths
         self.color_labels = color_labels
-        self.make_labels = make_labels
         self.transform = transform
         self.augment = augment
         
@@ -94,55 +90,10 @@ class VehicleDataset(Dataset):
         if self.transform:
             image = self.transform(image)
         
-        return image, self.color_labels[idx], self.make_labels[idx]
-
-class StanfordCarsDataset(Dataset):
-    def __init__(self, image_paths, labels, transform=None, augment=False):
-        self.image_paths = image_paths
-        self.labels = labels
-        self.transform = transform
-        self.augment = augment
-        
-        if augment:
-            self.aug_transform = A.Compose([
-                A.RandomBrightnessContrast(p=0.5),
-                A.HueSaturationValue(p=0.5),
-                A.GaussNoise(p=0.3),
-                A.RandomShadow(p=0.3),
-                A.RandomFog(p=0.2),
-                A.RandomSunFlare(p=0.2),
-                A.Rotate(limit=15, p=0.5),
-                A.HorizontalFlip(p=0.5),
-                A.OneOf([
-                    A.MotionBlur(p=1),
-                    A.GaussianBlur(p=1),
-                    A.MedianBlur(p=1)
-                ], p=0.3),
-            ])
-
-    def __len__(self):
-        return len(self.image_paths)
-
-    def __getitem__(self, idx):
-        try:
-            image = Image.open(self.image_paths[idx]).convert('RGB')
-            image = np.array(image)
-            
-            if self.augment:
-                augmented = self.aug_transform(image=image)
-                image = augmented['image']
-            
-            if self.transform:
-                image = self.transform(image)
-            
-            return image, self.labels[idx]
-        except Exception as e:
-            logging.error(f"Error loading image {self.image_paths[idx]}: {str(e)}")
-            # Return a default image or skip this sample
-            raise e
+        return image, self.color_labels[idx]
 
 def load_stanford_cars_dataset():
-    """Load Stanford Cars dataset using kagglehub with improved handling"""
+    """Load Stanford Cars dataset using kagglehub with improved handling (color only)"""
     logging.info("Loading Stanford Cars dataset...")
     
     try:
@@ -181,7 +132,8 @@ def load_stanford_cars_dataset():
         
         # Process annotations
         image_paths = []
-        make_labels = []
+        color_labels = []
+        color_map = {color.lower(): idx for idx, color in enumerate(COLORS)}
         
         for anno in annotations['annotations'][0]:
             img_name = os.path.basename(anno[0][0])  # Get filename only
@@ -193,25 +145,15 @@ def load_stanford_cars_dataset():
             
             if os.path.exists(img_path):
                 try:
-                    # Extract make from class name (format: "Make Model Year")
+                    # Extract color from class name (assume last word is color, or use a mapping)
                     class_name = class_names[class_id]
-                    make = class_name.split()[0].lower()
-                    
-                    # Map make to our predefined makes
-                    make_idx = None
-                    for idx, valid_make in enumerate(MAKES):
-                        if make in valid_make.lower():
-                            make_idx = idx
-                            break
-                    
-                    if make_idx is not None:
+                    color = class_name.split()[-1].lower()  # Example: "Honda Accord Red" -> "red"
+                    color_idx = color_map.get(color, None)
+                    if color_idx is not None:
                         image_paths.append(img_path)
-                        make_labels.append(make_idx)
-                        
-                        # Log progress
+                        color_labels.append(color_idx)
                         if len(image_paths) % 1000 == 0:
                             logging.info(f"Processed {len(image_paths)} images...")
-                            
                 except Exception as e:
                     logging.warning(f"Error processing annotation for {img_path}: {str(e)}")
                     continue
@@ -222,22 +164,20 @@ def load_stanford_cars_dataset():
             raise ValueError("No valid images found in the dataset")
             
         logging.info(f"Successfully loaded {len(image_paths)} valid images")
-        logging.info(f"Found {len(set(make_labels))} unique makes in the dataset")
+        logging.info(f"Found {len(set(color_labels))} unique colors in the dataset")
+        unique_colors = set(color_labels)
+        logging.info(f"Example colors found: {[COLORS[idx] for idx in list(unique_colors)[:10]]}")
         
-        # Log some example makes for verification
-        unique_makes = set(make_labels)
-        logging.info(f"Example makes found: {[MAKES[idx] for idx in list(unique_makes)[:10]]}")
-        
-        return image_paths, make_labels
+        return image_paths, color_labels
         
     except Exception as e:
         logging.error(f"Error loading Stanford Cars dataset: {str(e)}")
         raise
 
-def create_model(num_makes):
-    """Create and initialize the model"""
+def create_model(num_colors):
+    """Create and initialize the model for color classification only"""
     # Use EfficientNet as base model
-    model = models.efficientnet_b0(pretrained=True)
+    model = models.efficientnet_b0(weights=models.EfficientNet_B0_Weights.DEFAULT)
     
     # Freeze early layers
     for param in list(model.parameters())[:-20]:
@@ -265,13 +205,13 @@ def create_model(num_makes):
             return self.fc(weighted_features)
     
     # Replace classifier
-    in_features = model._fc.in_features
-    model._fc = AttentionHead(in_features, num_makes)
+    in_features = model.classifier[1].in_features
+    model.classifier = AttentionHead(in_features, num_colors)
     
     return model
 
 def train_model(model, train_loader, val_loader, device, num_epochs=50):
-    """Train the model with improvements"""
+    """Train the model for color classification only"""
     # Initialize wandb
     wandb.init(project="vehicle-attribute-detection", config={
         "architecture": "EfficientNet-B0",
@@ -284,7 +224,7 @@ def train_model(model, train_loader, val_loader, device, num_epochs=50):
     })
     
     # Loss function with class weights
-    criterion = nn.CrossEntropyLoss(weight=calculate_class_weights(train_loader, 'make').to(device))
+    criterion = nn.CrossEntropyLoss(weight=calculate_class_weights(train_loader).to(device))
     
     # Optimizer with weight decay
     optimizer = optim.AdamW(model.parameters(), lr=0.001, weight_decay=0.01)
@@ -405,9 +345,9 @@ def train_model(model, train_loader, val_loader, device, num_epochs=50):
     wandb.finish()
     return best_model_path
 
-def calculate_class_weights(dataloader, attribute_type):
-    """Calculate class weights to handle imbalanced data"""
-    label_counts = torch.zeros(len(MAKES))
+def calculate_class_weights(dataloader):
+    """Calculate class weights to handle imbalanced data (color only)"""
+    label_counts = torch.zeros(len(COLORS))
     
     for _, labels in dataloader:
         for label in labels:
@@ -447,27 +387,27 @@ def main():
     
     # Load Stanford Cars dataset
     try:
-        image_paths, make_labels = load_stanford_cars_dataset()
+        image_paths, color_labels = load_stanford_cars_dataset()
         logging.info(f"Successfully loaded {len(image_paths)} images")
     except Exception as e:
         logging.error(f"Failed to load dataset: {str(e)}")
         raise
     
     # Split dataset
-    train_paths, val_paths, train_makes, val_makes = train_test_split(
-        image_paths, make_labels, test_size=0.2, random_state=42, stratify=make_labels
+    train_paths, val_paths, train_colors, val_colors = train_test_split(
+        image_paths, color_labels, test_size=0.2, random_state=42, stratify=color_labels
     )
     
     logging.info(f"Split dataset into {len(train_paths)} training and {len(val_paths)} validation samples")
     
     # Create data loaders
-    train_dataset = StanfordCarsDataset(
-        train_paths, train_makes,
+    train_dataset = VehicleDataset(
+        train_paths, train_colors,
         transform=train_transform,
         augment=True
     )
-    val_dataset = StanfordCarsDataset(
-        val_paths, val_makes,
+    val_dataset = VehicleDataset(
+        val_paths, val_colors,
         transform=val_transform,
         augment=False
     )
@@ -489,7 +429,7 @@ def main():
     
     # Initialize model
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = create_model(len(MAKES))
+    model = create_model(len(COLORS))
     model = model.to(device)
     
     # Log model architecture
@@ -501,8 +441,8 @@ def main():
     # Move best model to weights directory
     weights_dir = Path('weights')
     weights_dir.mkdir(exist_ok=True)
-    Path(best_model_path).rename(weights_dir / 'vehicle_make_model.pth')
-    logging.info(f'Training complete. Best model saved to {weights_dir}/vehicle_make_model.pth')
+    Path(best_model_path).rename(weights_dir / 'vehicle_color_model.pth')
+    logging.info(f'Training complete. Best model saved to {weights_dir}/vehicle_color_model.pth')
 
 if __name__ == '__main__':
     main() 

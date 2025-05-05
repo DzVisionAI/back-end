@@ -13,7 +13,7 @@ from src.ai import LicensePlateDetector, VehicleTracker, get_car, read_license_p
 from src.models.vehicles_model import Vehicle
 
 # Import new AI functions (you'll need to implement these)
-from src.ai import detect_vehicle_color, detect_vehicle_make
+from src.ai import detect_vehicle_color
 
 class VideoService:
     def __init__(self):
@@ -73,6 +73,7 @@ class VideoService:
             plates_detected = 0
             processing_times = []
             last_frame_time = time.time()
+            detection_results = []  # Collect detection results
             
             print(f"Original video FPS: {original_fps}, Target FPS: {target_fps}")
             
@@ -108,7 +109,6 @@ class VideoService:
                         x1, y1, x2, y2, score, class_id = license_plate
                         
                         # Assign license plate to car
-
                         xcar1, ycar1, xcar2, ycar2, car_id = get_car(license_plate, track_ids)
                         
                         if car_id != -1:
@@ -127,7 +127,7 @@ class VideoService:
                                         plates_detected += 1
                                         # Save detection
                                         detection_id = str(uuid.uuid4())
-                                        self.save_detection(
+                                        detection_result = self.save_detection(
                                             detection_id=detection_id,
                                             frame_number=frame_number,
                                             vehicle_crop=frame[int(ycar1):int(ycar2), int(xcar1):int(xcar2)],
@@ -135,6 +135,8 @@ class VideoService:
                                             plate_text=plate_text,
                                             text_score=text_score
                                         )
+                                        if detection_result:
+                                            detection_results.append(detection_result)
                             except Exception as plate_error:
                                 print(f"Error processing plate in frame {frame_number}: {str(plate_error)}")
                                 continue
@@ -173,7 +175,8 @@ class VideoService:
                 'target_fps': target_fps,
                 'original_fps': original_fps,
                 'processing_time_per_frame': avg_processing_time,
-                'total_processing_time': sum(processing_times)
+                'total_processing_time': sum(processing_times),
+                'detections': detection_results
             }
 
         except Exception as e:
@@ -204,15 +207,13 @@ class VideoService:
             
             print(f"Saved images - Vehicle: {vehicle_path}, Plate: {plate_path}")
             
-            # Detect vehicle color and make
+            # Detect vehicle color
             try:
                 vehicle_color = detect_vehicle_color(vehicle_crop)
-                vehicle_make = detect_vehicle_make(vehicle_crop)
-                print(f"Detected vehicle properties - Color: {vehicle_color}, Make: {vehicle_make}")
+                print(f"Detected vehicle color: {vehicle_color}")
             except Exception as ai_error:
-                print(f"Error detecting vehicle properties: {str(ai_error)}")
+                print(f"Error detecting vehicle color: {str(ai_error)}")
                 vehicle_color = None
-                vehicle_make = None
             
             detection_time = datetime.utcnow()
             
@@ -226,7 +227,6 @@ class VideoService:
                         plateNumber=plate_text,
                         registerAt=detection_time,
                         color=vehicle_color,
-                        make=vehicle_make,
                         model=None,  # This could be enhanced with model detection
                         ownerId=None,
                         image=vehicle_path  # Save the path to the vehicle image
@@ -238,7 +238,7 @@ class VideoService:
                     # Create event for new vehicle registration
                     registration_event = Event(
                         typeName='new_vehicle_registration',
-                        description=f'New vehicle registered with plate {plate_text}, color: {vehicle_color}, make: {vehicle_make}',
+                        description=f'New vehicle registered with plate {plate_text}, color: {vehicle_color}',
                         time=detection_time,
                         plateId=None,  # Will be set after license plate is created
                         cameraId=None,
@@ -259,19 +259,6 @@ class VideoService:
                             driverId=None
                         )
                         db.session.add(color_event)
-                    
-                    if vehicle_make and not vehicle.make:
-                        vehicle.make = vehicle_make
-                        # Create event for make update
-                        make_event = Event(
-                            typeName='vehicle_make_update',
-                            description=f'Vehicle make detected: {vehicle_make}',
-                            time=detection_time,
-                            plateId=None,
-                            cameraId=None,
-                            driverId=None
-                        )
-                        db.session.add(make_event)
                 
                 # Create license plate record
                 license_plate = LicensePlate(
@@ -310,7 +297,6 @@ class VideoService:
                         'id': vehicle.id,
                         'plate_number': vehicle.plateNumber,
                         'color': vehicle.color,
-                        'make': vehicle.make,
                         'image_path': vehicle_path
                     },
                     'license_plate': {

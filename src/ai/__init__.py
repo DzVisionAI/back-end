@@ -23,24 +23,18 @@ import torch.nn as nn
 
 # Load configurations
 def load_configs():
-    """Load color and make configurations"""
+    """Load color configurations only"""
     config_dir = os.path.join(os.path.dirname(__file__), 'config')
     with open(os.path.join(config_dir, 'colors.json'), 'r') as f:
         colors = json.load(f)
-    with open(os.path.join(config_dir, 'makes.json'), 'r') as f:
-        makes = json.load(f)
-    return colors, makes
+    return colors
 
 # Load pre-trained models and configurations
-def load_vehicle_attribute_model():
-    """Load pre-trained model for vehicle attribute detection"""
-    model = models.efficientnet_b0(pretrained=True)
-    
-    # Freeze early layers
+def load_vehicle_color_model():
+    """Load pre-trained model for vehicle color detection only"""
+    model = models.efficientnet_b0(weights=models.EfficientNet_B0_Weights.DEFAULT)
     for param in list(model.parameters())[:-20]:
         param.requires_grad = False
-    
-    # Modified head with attention for both color and make classification
     class AttentionHead(nn.Module):
         def __init__(self, in_features, num_classes):
             super().__init__()
@@ -55,34 +49,18 @@ def load_vehicle_attribute_model():
                 nn.Dropout(0.3),
                 nn.Linear(512, num_classes)
             )
-        
         def forward(self, x):
             attention_weights = torch.sigmoid(self.attention(x))
             weighted_features = x * attention_weights
             return self.fc(weighted_features)
-    
-    # Replace classifier
-    in_features = model._fc.in_features
-    model._fc = nn.Identity()
-    
-    # Load configurations
-    colors, makes = load_configs()
-    
-    model = nn.Sequential(
-        model,
-        nn.Sequential(
-            AttentionHead(in_features, len(colors)),
-            AttentionHead(in_features, len(makes))
-        )
-    )
-    
-    # Load the trained weights if they exist
-    model_path = os.path.join(os.path.dirname(__file__), 'weights', 'vehicle_attribute_model.pth')
+    colors = load_configs()
+    in_features = model.classifier[1].in_features
+    model.classifier = AttentionHead(in_features, len(colors))
+    model_path = os.path.join(os.path.dirname(__file__), 'weights', 'vehicle_color_model.pth')
     if os.path.exists(model_path):
-        model.load_state_dict(torch.load(model_path))
-    
+        model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
     model.eval()
-    return model, colors, makes
+    return model, colors
 
 # Create necessary directories and configuration files
 def initialize_ai_files():
@@ -126,17 +104,15 @@ initialize_ai_files()
 # Initialize the model and configurations globally
 try:
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    vehicle_model, COLORS, MAKES = load_vehicle_attribute_model()
+    vehicle_model, COLORS = load_vehicle_color_model()
     vehicle_model = vehicle_model.to(device)
-    
-    # Define image preprocessing
     preprocess = transforms.Compose([
         transforms.Resize((224, 224)),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     ])
 except Exception as e:
-    print(f"Error initializing vehicle attribute detection: {str(e)}")
+    print(f"Error initializing vehicle color detection: {str(e)}")
     raise
 
 def preprocess_vehicle_image(image):
@@ -153,21 +129,15 @@ def preprocess_vehicle_image(image):
 def detect_vehicle_color(image):
     """Detect the color of a vehicle from its image"""
     try:
-        # Preprocess image
         image_tensor = preprocess_vehicle_image(image).to(device)
-        
-        # Get model predictions
         with torch.no_grad():
-            color_output, _ = vehicle_model(image_tensor)
-            color_probs = torch.softmax(color_output, dim=1)
+            output = vehicle_model(image_tensor)
+            color_probs = torch.softmax(output, dim=1)
             color_idx = torch.argmax(color_probs, dim=1).item()
             confidence = color_probs[0][color_idx].item()
-        
-        # Return color if confidence is high enough
-        if confidence > 0.5:  # Adjust threshold as needed
+        if confidence > 0.5:
             return COLORS[color_idx]
         return None
-        
     except Exception as e:
         print(f"Error detecting vehicle color: {str(e)}")
         return None
