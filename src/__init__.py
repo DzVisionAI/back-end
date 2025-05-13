@@ -74,6 +74,10 @@ from src.controllers.video_controller import video_bp
 from src.controllers.blacklist_controller import blacklist_bp
 from src.controllers.notification_controller import notification_bp
 from src.controllers.alert_controller import alert_bp
+from src.controllers.vehicles_controller import vehicles_bp
+from src.controllers.license_plates_controller import license_plates_bp
+from src.controllers.events_controller import events_bp
+from src.controllers.drivers_controller import drivers_bp
 
 app.register_blueprint(auth_bp, url_prefix='/api/auth')
 app.register_blueprint(user_bp, url_prefix='/api/users')
@@ -81,3 +85,7 @@ app.register_blueprint(video_bp, url_prefix='/api/video')
 app.register_blueprint(blacklist_bp, url_prefix='/api/blacklist')
 app.register_blueprint(notification_bp, url_prefix='/api/notification')
 app.register_blueprint(alert_bp, url_prefix='/api/alert')
+app.register_blueprint(vehicles_bp, url_prefix='/api/vehicles')
+app.register_blueprint(license_plates_bp, url_prefix='/api/license-plates')
+app.register_blueprint(events_bp, url_prefix='/api/events')
+app.register_blueprint(drivers_bp, url_prefix='/api/drivers')
