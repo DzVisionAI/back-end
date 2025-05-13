@@ -5,7 +5,6 @@ def seed_users():
     # Create initial users
     users = [
                 User(username='lokmane', email='l.zeddoun@esi-sba.dz', role=1)
-
     ]
 
     # Set passwords for users

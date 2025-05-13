@@ -3,6 +3,7 @@ from flask import jsonify
 from flask_jwt_extended import get_jwt_identity, verify_jwt_in_request
 from src.models.user_model import User, UserRole
 
+# Authentication and admin middleware for route protection
 def admin_required():
     def wrapper(fn):
         @wraps(fn)

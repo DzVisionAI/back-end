@@ -71,7 +71,9 @@ from src.models import (
 from src.controllers.auth_controller import auth_bp
 from src.controllers.user_controller import user_bp
 from src.controllers.video_controller import video_bp
+from src.controllers.blacklist_controller import blacklist_bp
 
 app.register_blueprint(auth_bp, url_prefix='/api/auth')
 app.register_blueprint(user_bp, url_prefix='/api/users')
 app.register_blueprint(video_bp, url_prefix='/api/video')
+app.register_blueprint(blacklist_bp, url_prefix='/api/blacklist')
