@@ -1,4 +1,5 @@
 from src.models.blacklist_model import BlackList, db
+from src.models.user_model import User
 
 class BlackListService:
     @staticmethod
@@ -12,7 +13,10 @@ class BlackListService:
                     'reason': b.reason,
                     'createAt': b.createAt,
                     'status': b.status,
-                    'addedBy': b.addedBy
+                    'addedBy': {
+                        'id': b.addedBy,
+                        'username': b.added_by_user.username if b.added_by_user else None
+                    }
                 } for b in blacklists
             ]
             return {'success': True, 'data': data}
@@ -30,7 +34,10 @@ class BlackListService:
             'reason': b.reason,
             'createAt': b.createAt,
             'status': b.status,
-            'addedBy': b.addedBy
+            'addedBy': {
+                'id': b.addedBy,
+                'username': b.added_by_user.username if b.added_by_user else None
+            }
         }
         return {'success': True, 'data': data}
 
