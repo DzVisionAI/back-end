@@ -1,10 +1,10 @@
 from src import app, db
-from src.models.user_model import User
+from src.models.user_model import User, UserRole
 
 def seed_users():
     # Create initial users
     users = [
-                User(username='lokmane', email='l.zeddoun@esi-sba.dz', role=1)
+                User(username='lokmane', email='l.zeddoun@esi-sba.dz', role=UserRole.ADMIN)
     ]
 
     # Set passwords for users

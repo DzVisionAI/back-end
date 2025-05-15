@@ -3,11 +3,11 @@ from src import db
 import bcrypt
 from flask_jwt_extended import create_access_token
 import secrets
-from enum import IntEnum
-
-class UserRole(IntEnum):
-    USER = 0
-    ADMIN = 1
+import enum
+from sqlalchemy import Enum
+class UserRole(enum.Enum):
+    ADMIN = 'admin'
+    USER = 'user'
 
 class User(db.Model):
     __tablename__ = 'users'
@@ -16,7 +16,7 @@ class User(db.Model):
     username = db.Column(db.String(100), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
-    role = db.Column(db.Integer, nullable=False, default=UserRole.USER)
+    role = db.Column(Enum(UserRole))  # note the name parameter
     createdAt = db.Column(db.DateTime, default=datetime.utcnow)
     reset_token = db.Column(db.String(100), unique=True)
     reset_token_expires = db.Column(db.DateTime)
@@ -52,7 +52,7 @@ class User(db.Model):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'role': self.role,
+            'role': self.role.name,
             'createdAt': self.createdAt.isoformat()
         }
 

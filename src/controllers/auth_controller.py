@@ -75,6 +75,6 @@ def get_current_user():
             'id': user.id,
             'username': user.username,
             'email': user.email,
-            'role': user.role
+            'role': user.role.name
         }
     }), 200

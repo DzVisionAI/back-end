@@ -44,6 +44,7 @@ class BlackListService:
     @staticmethod
     def create(data):
         try:
+            print(data)
             b = BlackList(
                 plateNumber=data['plateNumber'],
                 reason=data.get('reason'),
@@ -52,7 +53,21 @@ class BlackListService:
             )
             db.session.add(b)
             db.session.commit()
-            return {'success': True, 'message': 'BlackList entry created', 'data': {'id': b.id}}
+            return {
+                'success': True,
+                'message': 'BlackList entry created',
+                'data': {
+                    'id': b.id,
+                    'plateNumber': b.plateNumber,
+                    'reason': b.reason,
+                    'createAt': b.createAt,
+                    'status': b.status,
+                    'addedBy': {
+                        'id': b.addedBy,
+                        'username': b.added_by_user.username if b.added_by_user else None
+                    }
+                }
+            }
         except Exception as e:
             db.session.rollback()
             return {'success': False, 'message': str(e)}
@@ -63,7 +78,16 @@ class BlackListService:
         if not b:
             return {'success': False, 'message': 'Not found'}
         try:
-            if 'plateNumber' in data:
+            if 'plateNumber' in data and data['plateNumber'] != b.plateNumber:
+                # Check if another entry with this plateNumber exists
+                existing = BlackList.query.filter_by(plateNumber=data['plateNumber']).first()
+                if existing:
+                    return {
+                        'success': False,
+                        'errors': {
+                            'plateNumber': ['Plate number already exists in the blacklist.']
+                        }
+                    }
                 b.plateNumber = data['plateNumber']
             if 'reason' in data:
                 b.reason = data['reason']

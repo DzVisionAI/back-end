@@ -30,10 +30,16 @@ class UserService:
     @staticmethod
     def create_user(data):
         try:
+            role_value = data.get('role', UserRole.USER)
+            # Accept string (e.g., 'admin'), UserRole, or default
+            if isinstance(role_value, str):
+                role_enum = UserRole(role_value.lower())
+            else:
+                role_enum = role_value
             user = User(
                 username=data['username'],
                 email=data['email'],
-                role=data.get('role', UserRole.USER)
+                role=role_enum
             )
             user.set_password(data['password'])
             
@@ -75,7 +81,11 @@ class UserService:
             if 'password' in data:
                 user.set_password(data['password'])
             if 'role' in data:
-                user.role = data['role']
+                role_value = data['role']
+                if isinstance(role_value, str):
+                    user.role = UserRole(role_value.lower())
+                else:
+                    user.role = role_value
 
             db.session.commit()
             return {
@@ -104,7 +114,6 @@ class UserService:
                 'success': False,
                 'message': 'User not found'
             }
-
         try:
             db.session.delete(user)
             db.session.commit()
