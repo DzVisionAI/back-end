@@ -4,7 +4,7 @@ from src import db
 
 license_plates_bp = Blueprint('license_plates', __name__)
 
-@license_plates_bp.route('/', methods=['GET'])
+@license_plates_bp.route('/', methods=['GET'], strict_slashes=False)
 def get_license_plates():
     query = LicensePlate.query
 
@@ -20,8 +20,9 @@ def get_license_plates():
         query = query.filter(LicensePlate.cameraId == camera_id)
     if detected_at:
         query = query.filter(LicensePlate.detectedAt == detected_at)
+    # vehicle_id filter is not directly applicable, but we can filter by related vehicle
     if vehicle_id:
-        query = query.filter(LicensePlate.vehicleId == vehicle_id)
+        query = query.join(LicensePlate.vehicle).filter_by(id=vehicle_id)
 
     plates = query.all()
     data = [
@@ -31,12 +32,20 @@ def get_license_plates():
             'plateNumber': p.plateNumber,
             'detectedAt': p.detectedAt,
             'image': p.image,
-            'vehicleId': p.vehicleId
+            'vehicle': {
+                'id': p.vehicle.id,
+                'color': p.vehicle.color,
+                'make': p.vehicle.make,
+                'model': p.vehicle.model,
+                'ownerId': p.vehicle.ownerId,
+                'registerAt': p.vehicle.registerAt,
+                'image': p.vehicle.image
+            } if p.vehicle else None
         } for p in plates
     ]
     return jsonify({'success': True, 'data': data}), 200
 
-@license_plates_bp.route('/<int:plate_id>', methods=['GET'])
+@license_plates_bp.route('/<int:plate_id>', methods=['GET'], strict_slashes=False)
 def get_license_plate(plate_id):
     p = LicensePlate.query.get(plate_id)
     if not p:
@@ -47,6 +56,14 @@ def get_license_plate(plate_id):
         'plateNumber': p.plateNumber,
         'detectedAt': p.detectedAt,
         'image': p.image,
-        'vehicleId': p.vehicleId
+        'vehicle': {
+            'id': p.vehicle.id,
+            'color': p.vehicle.color,
+            'make': p.vehicle.make,
+            'model': p.vehicle.model,
+            'ownerId': p.vehicle.ownerId,
+            'registerAt': p.vehicle.registerAt,
+            'image': p.vehicle.image
+        } if p.vehicle else None
     }
     return jsonify({'success': True, 'data': data}), 200 

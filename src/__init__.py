@@ -91,3 +91,4 @@ app.register_blueprint(license_plates_bp, url_prefix='/api/license-plates')
 app.register_blueprint(events_bp, url_prefix='/api/events')
 app.register_blueprint(drivers_bp, url_prefix='/api/drivers')
 app.register_blueprint(cameras_bp, url_prefix='/api/cameras')
+

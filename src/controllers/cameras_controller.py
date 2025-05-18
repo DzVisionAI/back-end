@@ -4,7 +4,7 @@ from src import db
 
 cameras_bp = Blueprint('cameras', __name__)
 
-@cameras_bp.route('/', methods=['GET'])
+@cameras_bp.route('/', methods=['GET'], strict_slashes=False)
 def get_cameras():
     cameras = Camera.query.all()
     data = [
@@ -22,7 +22,7 @@ def get_cameras():
     ]
     return jsonify({'success': True, 'data': data}), 200
 
-@cameras_bp.route('/<int:camera_id>', methods=['GET'])
+@cameras_bp.route('/<int:camera_id>', methods=['GET'], strict_slashes=False)
 def get_camera(camera_id):
     c = Camera.query.get(camera_id)
     if not c:

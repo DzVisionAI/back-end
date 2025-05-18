@@ -4,7 +4,7 @@ from src import db
 
 vehicles_bp = Blueprint('vehicles', __name__)
 
-@vehicles_bp.route('/', methods=['GET'])
+@vehicles_bp.route('/', methods=['GET'], strict_slashes=False)
 def get_vehicles():
     vehicles = Vehicle.query.all()
     data = [
@@ -21,7 +21,7 @@ def get_vehicles():
     ]
     return jsonify({'success': True, 'data': data}), 200
 
-@vehicles_bp.route('/<int:vehicle_id>', methods=['GET'])
+@vehicles_bp.route('/<int:vehicle_id>', methods=['GET'], strict_slashes=False)
 def get_vehicle(vehicle_id):
     v = Vehicle.query.get(vehicle_id)
     if not v:

@@ -218,13 +218,28 @@ class VideoService:
             detection_time = datetime.utcnow()
             
             try:
-                # First, check if vehicle exists with this plate number
-                vehicle = Vehicle.query.filter_by(plateNumber=plate_text).first()
-                
-                if not vehicle:
-                    # Create new vehicle if not exists
-                    vehicle = Vehicle(
+                # First, check if license plate exists
+                license_plate = LicensePlate.query.filter_by(plateNumber=plate_text).first()
+                if not license_plate:
+                    license_plate = LicensePlate(
                         plateNumber=plate_text,
+                        detectedAt=detection_time,
+                        image=plate_path,
+                        cameraId=None
+                    )
+                    db.session.add(license_plate)
+                    db.session.flush()
+                else:
+                    # Optionally update detectedAt/image if you want to keep latest
+                    license_plate.detectedAt = detection_time
+                    license_plate.image = plate_path
+                    db.session.flush()
+
+                # Now, check if a vehicle exists with this license_plate_id
+                vehicle = Vehicle.query.filter_by(license_plate_id=license_plate.id).first()
+                if not vehicle:
+                    vehicle = Vehicle(
+                        license_plate_id=license_plate.id,
                         registerAt=detection_time,
                         color=vehicle_color,
                         model=None,  # This could be enhanced with model detection
@@ -232,15 +247,13 @@ class VideoService:
                         image=vehicle_path  # Save the path to the vehicle image
                     )
                     db.session.add(vehicle)
-                    # Flush to get the vehicle ID
                     db.session.flush()
-                    
                     # Create event for new vehicle registration
                     registration_event = Event(
                         typeName='new_vehicle_registration',
                         description=f'New vehicle registered with plate {plate_text}, color: {vehicle_color}',
                         time=detection_time,
-                        plateId=None,  # Will be set after license plate is created
+                        plateId=license_plate.id,
                         cameraId=None,
                         driverId=None
                     )
@@ -254,28 +267,15 @@ class VideoService:
                             typeName='vehicle_color_update',
                             description=f'Vehicle color detected: {vehicle_color}',
                             time=detection_time,
-                            plateId=None,
+                            plateId=license_plate.id,
                             cameraId=None,
                             driverId=None
                         )
                         db.session.add(color_event)
-                
-                # Create license plate record
-                license_plate = LicensePlate(
-                    plateNumber=plate_text,
-                    detectedAt=detection_time,
-                    image=plate_path,
-                    vehicleId=str(vehicle.id),
-                    cameraId=None
-                )
-                db.session.add(license_plate)
-                db.session.flush()
-                
-                # Update plateId for all events
-                for event in db.session.new:
-                    if isinstance(event, Event) and event.plateId is None:
-                        event.plateId = license_plate.id
-                
+                    # Optionally update vehicle image
+                    vehicle.image = vehicle_path
+                    db.session.flush()
+
                 # Create detection event
                 detection_event = Event(
                     typeName='license_plate_detection',
@@ -295,7 +295,7 @@ class VideoService:
                     'success': True,
                     'vehicle': {
                         'id': vehicle.id,
-                        'plate_number': vehicle.plateNumber,
+                        'plate_number': license_plate.plateNumber,
                         'color': vehicle.color,
                         'image_path': vehicle_path
                     },
@@ -304,7 +304,6 @@ class VideoService:
                         'number': plate_text,
                         'image_path': plate_path
                     },
-                    'events': [event.typeName for event in db.session.new if isinstance(event, Event)],
                     'frame_number': frame_number,
                     'detection_time': detection_time
                 }

@@ -4,7 +4,7 @@ from src import db
 
 drivers_bp = Blueprint('drivers', __name__)
 
-@drivers_bp.route('/', methods=['GET'])
+@drivers_bp.route('/', methods=['GET'], strict_slashes=False)
 def get_drivers():
     drivers = Driver.query.all()
     data = [
@@ -19,7 +19,7 @@ def get_drivers():
     ]
     return jsonify({'success': True, 'data': data}), 200
 
-@drivers_bp.route('/<int:driver_id>', methods=['GET'])
+@drivers_bp.route('/<int:driver_id>', methods=['GET'], strict_slashes=False)
 def get_driver(driver_id):
     d = Driver.query.get(driver_id)
     if not d:
