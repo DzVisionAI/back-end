@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from src.models.license_plates_model import LicensePlate
 from src import db
 
@@ -6,7 +6,24 @@ license_plates_bp = Blueprint('license_plates', __name__)
 
 @license_plates_bp.route('/', methods=['GET'])
 def get_license_plates():
-    plates = LicensePlate.query.all()
+    query = LicensePlate.query
+
+    # Query filters
+    plate_number = request.args.get('plateNumber')
+    camera_id = request.args.get('cameraId')
+    detected_at = request.args.get('detectedAt')
+    vehicle_id = request.args.get('vehicleId')
+
+    if plate_number:
+        query = query.filter(LicensePlate.plateNumber == plate_number)
+    if camera_id:
+        query = query.filter(LicensePlate.cameraId == camera_id)
+    if detected_at:
+        query = query.filter(LicensePlate.detectedAt == detected_at)
+    if vehicle_id:
+        query = query.filter(LicensePlate.vehicleId == vehicle_id)
+
+    plates = query.all()
     data = [
         {
             'id': p.id,

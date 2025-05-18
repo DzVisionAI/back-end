@@ -98,5 +98,5 @@ def reset_password():
         db.session.commit()
         return jsonify({'success': True, 'message': 'Password updated successfully'}), 200
     except Exception as e:
-        db.session.rollback()
+        db.session.rollback()   
         return jsonify({'success': False, 'message': str(e)}), 400 

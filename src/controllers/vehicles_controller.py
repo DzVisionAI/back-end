@@ -10,7 +10,7 @@ def get_vehicles():
     data = [
         {
             'id': v.id,
-            'plateNumber': v.plateNumber,
+            'plateNumber': v.license_plate.plateNumber if v.license_plate else None,
             'color': v.color,
             'make': v.make,
             'model': v.model,
@@ -28,7 +28,7 @@ def get_vehicle(vehicle_id):
         return jsonify({'success': False, 'message': 'Vehicle not found'}), 404
     data = {
         'id': v.id,
-        'plateNumber': v.plateNumber,
+        'plateNumber': v.license_plate.plateNumber if v.license_plate else None,
         'color': v.color,
         'make': v.make,
         'model': v.model,
