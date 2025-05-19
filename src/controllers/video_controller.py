@@ -4,8 +4,16 @@ from werkzeug.utils import secure_filename
 import os
 from src.models.vehicles_model import Vehicle
 from src.models.license_plates_model import LicensePlate
+from flask_socketio import emit
+from threading import Thread
+from flask import copy_current_request_context
 
 video_bp = Blueprint('video', __name__)
+
+try:
+    from src import socketio
+except ImportError:
+    socketio = None  # fallback for testing, but should be imported in real app
 
 @video_bp.route('/upload', methods=['POST'])
 def upload_video():
@@ -83,3 +91,34 @@ def process_video(filename):
             'success': False,
             'message': str(e)
         }), 500 
+
+@socketio.on('start_processing', namespace='/video')
+def handle_start_processing(data):
+    try:
+        filename = data.get('filename')
+        if not filename:
+            socketio.emit('error', {'message': 'Filename not provided'}, namespace='/video')
+            return
+
+        file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+        if not os.path.exists(file_path):
+            socketio.emit('error', {'message': 'Video file not found'}, namespace='/video')
+            return
+
+        video_service = VideoService()
+
+        def process_and_emit():
+            try:
+                for event in video_service.process_video_realtime(file_path):
+                    socketio.emit('video_event', event, namespace='/video')
+                socketio.emit('processing_complete', namespace='/video')
+            except Exception as e:
+                socketio.emit('error', {'message': str(e)}, namespace='/video')
+
+        # Start processing in a background thread
+        thread = Thread(target=process_and_emit)
+        thread.start()
+
+        socketio.emit('processing_started', namespace='/video')
+    except Exception as e:
+        socketio.emit('error', {'message': str(e)}, namespace='/video')

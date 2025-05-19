@@ -186,6 +186,126 @@ class VideoService:
                 'message': f'Error processing video: {str(e)}'
             }
 
+    def process_video_realtime(self, video_path, target_fps=15):
+        """Generator that processes video and yields events for real-time streaming via Socket.IO."""
+        try:
+            if not os.path.exists(video_path):
+                yield {
+                    'type': 'error',
+                    'data': {'message': f'Video file not found: {video_path}'}
+                }
+                return
+
+            cap = cv2.VideoCapture(video_path)
+            if not cap.isOpened():
+                yield {
+                    'type': 'error',
+                    'data': {'message': 'Failed to open video file'}
+                }
+                return
+
+            original_fps = cap.get(cv2.CAP_PROP_FPS)
+            total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+            target_frame_time = 1.0 / target_fps
+            frame_number = 0
+            vehicles_detected = 0
+            plates_detected = 0
+            processing_times = []
+            last_frame_time = time.time()
+
+            while True:
+                current_time = time.time()
+                elapsed_time = current_time - last_frame_time
+                if elapsed_time < target_frame_time:
+                    time.sleep(target_frame_time - elapsed_time)
+
+                start_time = time.time()
+                ret, frame = cap.read()
+                if not ret:
+                    break
+
+                frame_number += 1
+                try:
+                    detections = self.detector.detect_vehicles(frame)
+                    vehicles_detected += len(detections)
+                    track_ids = self.tracker.update(detections)
+                    license_plates = self.detector.detect_license_plates(frame)
+
+                    for license_plate in license_plates:
+                        x1, y1, x2, y2, score, class_id = license_plate
+                        xcar1, ycar1, xcar2, ycar2, car_id = get_car(license_plate, track_ids)
+                        if car_id != -1:
+                            try:
+                                license_plate_crop = frame[int(y1):int(y2), int(x1):int(x2)]
+                                if license_plate_crop.size > 0:
+                                    license_plate_crop_gray = cv2.cvtColor(license_plate_crop, cv2.COLOR_BGR2GRAY)
+                                    _, license_plate_crop_thresh = cv2.threshold(license_plate_crop_gray, 64, 255, cv2.THRESH_BINARY_INV)
+                                    plate_text, text_score = read_license_plate(license_plate_crop_thresh)
+                                    if plate_text is not None:
+                                        plates_detected += 1
+                                        detection_id = str(uuid.uuid4())
+                                        detection_result = self.save_detection(
+                                            detection_id=detection_id,
+                                            frame_number=frame_number,
+                                            vehicle_crop=frame[int(ycar1):int(ycar2), int(xcar1):int(xcar2)],
+                                            plate_crop=license_plate_crop,
+                                            plate_text=plate_text,
+                                            text_score=text_score
+                                        )
+                                        if detection_result:
+                                            yield {
+                                                'type': 'detection',
+                                                'data': detection_result
+                                            }
+                            except Exception as plate_error:
+                                yield {
+                                    'type': 'error',
+                                    'data': {'message': f'Error processing plate in frame {frame_number}: {str(plate_error)}'}
+                                }
+                                continue
+
+                    end_time = time.time()
+                    processing_time = end_time - start_time
+                    processing_times.append(processing_time)
+                    last_frame_time = time.time()
+
+                    if frame_number % 30 == 0:
+                        current_fps = 1.0 / (sum(processing_times[-30:]) / len(processing_times[-30:])) if len(processing_times[-30:]) > 0 else 0
+                        progress = (frame_number / total_frames) * 100 if total_frames > 0 else 0
+                        yield {
+                            'type': 'progress',
+                            'data': {
+                                'frame_number': frame_number,
+                                'progress': progress,
+                                'current_fps': current_fps
+                            }
+                        }
+                except Exception as frame_error:
+                    yield {
+                        'type': 'error',
+                        'data': {'message': f'Error processing frame {frame_number}: {str(frame_error)}'}
+                    }
+                    continue
+
+            cap.release()
+            avg_processing_time = sum(processing_times) / len(processing_times) if processing_times else 0
+            avg_fps = 1.0 / avg_processing_time if avg_processing_time > 0 else 0
+            yield {
+                'type': 'complete',
+                'data': {
+                    'frames_processed': frame_number,
+                    'vehicles_detected': vehicles_detected,
+                    'plates_detected': plates_detected,
+                    'average_fps': avg_fps,
+                    'processing_time_per_frame': avg_processing_time,
+                    'total_processing_time': sum(processing_times)
+                }
+            }
+        except Exception as e:
+            yield {
+                'type': 'error',
+                'data': {'message': f'Error processing video: {str(e)}'}
+            }
 
     def save_detection(self, detection_id, frame_number, vehicle_crop, plate_crop, plate_text, text_score):
         """Save detection results to files and database with proper model relationships."""
