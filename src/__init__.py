@@ -19,7 +19,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Initialize SocketIO
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading')
 
 # calling the dev configuration
 config = Config().dev_config

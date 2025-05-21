@@ -445,3 +445,58 @@ class VideoService:
             print(f"Error in save_detection: {str(e)}")
             db.session.rollback()
             raise e
+
+    def process_image(self, image_path):
+        try:
+            if not os.path.exists(image_path):
+                return {
+                    'success': False,
+                    'message': f'Image file not found: {image_path}'
+                }
+            image = cv2.imread(image_path)
+            if image is None:
+                return {
+                    'success': False,
+                    'message': 'Failed to load image file'
+                }
+            detections = self.detector.detect_vehicles(image)
+            track_ids = self.tracker.update(detections)
+            license_plates = self.detector.detect_license_plates(image)
+            detection_results = []
+            frame_number = 1
+            for license_plate in license_plates:
+                x1, y1, x2, y2, score, class_id = license_plate
+                xcar1, ycar1, xcar2, ycar2, car_id = get_car(license_plate, track_ids)
+                if car_id != -1:
+                    try:
+                        license_plate_crop = image[int(y1):int(y2), int(x1):int(x2)]
+                        if license_plate_crop.size > 0:
+                            license_plate_crop_gray = cv2.cvtColor(license_plate_crop, cv2.COLOR_BGR2GRAY)
+                            _, license_plate_crop_thresh = cv2.threshold(license_plate_crop_gray, 64, 255, cv2.THRESH_BINARY_INV)
+                            plate_text, text_score = read_license_plate(license_plate_crop_thresh)
+                            if plate_text is not None:
+                                detection_id = str(uuid.uuid4())
+                                detection_result = self.save_detection(
+                                    detection_id=detection_id,
+                                    frame_number=frame_number,
+                                    vehicle_crop=image[int(ycar1):int(ycar2), int(xcar1):int(xcar2)],
+                                    plate_crop=license_plate_crop,
+                                    plate_text=plate_text,
+                                    text_score=text_score
+                                )
+                                if detection_result:
+                                    detection_results.append(detection_result)
+                    except Exception as plate_error:
+                        print(f"Error processing plate in image: {str(plate_error)}")
+                        continue
+            return {
+                'success': True,
+                'message': 'Image processed successfully',
+                'detections': detection_results
+            }
+        except Exception as e:
+            print(f"Error processing image: {str(e)}")
+            return {
+                'success': False,
+                'message': f'Error processing image: {str(e)}'
+            }
