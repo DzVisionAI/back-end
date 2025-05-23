@@ -8,6 +8,7 @@ from flask_jwt_extended import JWTManager
 from flask_mail import Mail
 from flask_cors import CORS
 from datetime import timedelta
+from flask_socketio import SocketIO
 
 load_dotenv()
 
@@ -16,6 +17,9 @@ app = Flask(__name__)
 
 # Enable CORS
 CORS(app)
+
+# Initialize SocketIO
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading')
 
 # calling the dev configuration
 config = Config().dev_config
