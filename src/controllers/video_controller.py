@@ -11,6 +11,8 @@ from src import socketio
 from src import app
 import datetime
 import json
+from src.utils import upload_to_gcs
+import cv2
 video_bp = Blueprint('video', __name__)
 
 # try:
@@ -43,15 +45,41 @@ def upload_video():
         }), 400
 
     try:
-        # Secure the filename and save the file
         filename = secure_filename(video_file.filename)
         upload_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+        # If file exists, delete it
+        if os.path.exists(upload_path):
+            os.remove(upload_path)
         video_file.save(upload_path)
-        
+
+        # Generate thumbnail from the middle frame
+        cap = cv2.VideoCapture(upload_path)
+        total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+        middle_frame_idx = total_frames // 2 if total_frames > 0 else 0
+        cap.set(cv2.CAP_PROP_POS_FRAMES, middle_frame_idx)
+        ret, frame = cap.read()
+        cap.release()
+        if not ret:
+            return jsonify({
+                'success': False,
+                'message': 'Failed to generate thumbnail from video.'
+            }), 500
+        thumb_filename = filename.rsplit('.', 1)[0] + '_thumb.jpg'
+        thumb_path = os.path.join(current_app.config['UPLOAD_FOLDER'], thumb_filename)
+        cv2.imwrite(thumb_path, frame)
+        # Upload thumbnail to GCS
+        gcs_thumb = upload_to_gcs(thumb_path, f"thumbnails/{thumb_filename}")
+        signed_url = gcs_thumb.get('signed_url')
+        blob_url = gcs_thumb.get('blob_url')
+        # Optionally, remove the local thumbnail after upload
+        if os.path.exists(thumb_path):
+            os.remove(thumb_path)
         return jsonify({
             'success': True,
             'message': 'Video uploaded successfully',
-            'filename': filename
+            'filename': filename,
+            'thumbnail_signed_url': signed_url,
+            'thumbnail_blob_url': blob_url
         }), 200
     except Exception as e:
         return jsonify({
@@ -162,6 +190,7 @@ def handle_message(message):
 
 @video_bp.route('/upload_image', methods=['POST'])
 def upload_image():
+    print(request.files)
     if 'image' not in request.files:
         return jsonify({
             'success': False,
@@ -186,11 +215,20 @@ def upload_image():
     try:
         filename = secure_filename(image_file.filename)
         upload_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+        # If file exists, delete it
+        if os.path.exists(upload_path):
+            os.remove(upload_path)
         image_file.save(upload_path)
+        # Upload image to GCS
+        gcs_image = upload_to_gcs(upload_path, f"images/{filename}")
+        signed_url = gcs_image.get('signed_url')
+        blob_url = gcs_image.get('blob_url')
         return jsonify({
             'success': True,
             'message': 'Image uploaded successfully',
-            'filename': filename
+            'filename': filename,
+            'image_signed_url': signed_url,
+            'image_blob_url': blob_url
         }), 200
     except Exception as e:
         return jsonify({
