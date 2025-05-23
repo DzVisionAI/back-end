@@ -14,6 +14,7 @@ from src.models.vehicles_model import Vehicle
 
 # Import new AI functions (you'll need to implement these)
 from src.ai import detect_vehicle_color
+from src.utils import upload_to_gcs
 
 class VideoService:
     def __init__(self):
@@ -308,7 +309,7 @@ class VideoService:
             }
 
     def save_detection(self, detection_id, frame_number, vehicle_crop, plate_crop, plate_text, text_score):
-        """Save detection results to files and database with proper model relationships."""
+        """Save detection results to files, upload to GCS, and database with proper model relationships."""
         try:
             # Generate unique filenames with timestamp
             timestamp = datetime.utcnow().strftime('%Y%m%d_%H%M%S')
@@ -327,6 +328,24 @@ class VideoService:
             
             print(f"Saved images - Vehicle: {vehicle_path}, Plate: {plate_path}")
             
+            # Upload to GCS
+            try:
+                vehicle_gcs = upload_to_gcs(vehicle_path, f"vehicles/{vehicle_filename}")
+                vehicle_gcs_url = vehicle_gcs["blob_url"]
+                vehicle_signed_url = vehicle_gcs["signed_url"]
+            except Exception as gcs_e:
+                print(f"Error uploading vehicle image to GCS: {gcs_e}")
+                vehicle_gcs_url = None
+                vehicle_signed_url = None
+            try:
+                plate_gcs = upload_to_gcs(plate_path, f"plates/{plate_filename}")
+                plate_gcs_url = plate_gcs["blob_url"]
+                plate_signed_url = plate_gcs["signed_url"]
+            except Exception as gcs_e:
+                print(f"Error uploading plate image to GCS: {gcs_e}")
+                plate_gcs_url = None
+                plate_signed_url = None
+            
             # Detect vehicle color
             try:
                 vehicle_color = detect_vehicle_color(vehicle_crop)
@@ -344,7 +363,7 @@ class VideoService:
                     license_plate = LicensePlate(
                         plateNumber=plate_text,
                         detectedAt=detection_time,
-                        image=plate_path,
+                        image=plate_gcs_url or plate_path,
                         cameraId=None
                     )
                     db.session.add(license_plate)
@@ -352,7 +371,7 @@ class VideoService:
                 else:
                     # Optionally update detectedAt/image if you want to keep latest
                     license_plate.detectedAt = detection_time
-                    license_plate.image = plate_path
+                    license_plate.image = plate_gcs_url or plate_path
                     db.session.flush()
 
                 # Now, check if a vehicle exists with this license_plate_id
@@ -364,7 +383,7 @@ class VideoService:
                         color=vehicle_color,
                         model=None,  # This could be enhanced with model detection
                         ownerId=None,
-                        image=vehicle_path  # Save the path to the vehicle image
+                        image=vehicle_gcs_url or vehicle_path  # Save the GCS url or fallback to local path
                     )
                     db.session.add(vehicle)
                     db.session.flush()
@@ -393,7 +412,7 @@ class VideoService:
                         )
                         db.session.add(color_event)
                     # Optionally update vehicle image
-                    vehicle.image = vehicle_path
+                    vehicle.image = vehicle_gcs_url or vehicle_path
                     db.session.flush()
 
                 # Create detection event
@@ -417,12 +436,16 @@ class VideoService:
                         'id': vehicle.id,
                         'plate_number': license_plate.plateNumber,
                         'color': vehicle.color,
-                        'image_path': vehicle_path
+                        'image_path': vehicle_gcs_url or vehicle_path,
+                        'gcs_url': vehicle_gcs_url,
+                        'signed_url': vehicle_signed_url
                     },
                     'license_plate': {
                         'id': license_plate.id,
                         'number': plate_text,
-                        'image_path': plate_path
+                        'image_path': plate_gcs_url or plate_path,
+                        'gcs_url': plate_gcs_url,
+                        'signed_url': plate_signed_url
                     },
                     'frame_number': frame_number,
                     'detection_time': detection_time
