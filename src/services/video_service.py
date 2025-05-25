@@ -260,6 +260,38 @@ class VideoService:
                                                 'type': 'detection',
                                                 'data': detection_result
                                             }
+                                        # Real-time alert check
+                                        blacklisted = BlackList.query.filter(BlackList.plateNumber.ilike(plate_text), BlackList.status.ilike('active')).first()
+                                        if blacklisted:
+                                            # Create event for blacklist alert
+                                            from src.models.events_model import Event
+                                            from datetime import datetime
+                                            detection_time = datetime.utcnow()
+                                            from src.models.license_plates_model import LicensePlate
+                                            license_plate_obj = LicensePlate.query.filter_by(plateNumber=plate_text).first()
+                                            plate_id = license_plate_obj.id if license_plate_obj else None
+                                            blacklist_event = Event(
+                                                typeName='blacklist_alert',
+                                                description=f'Blacklisted plate {plate_text} detected.',
+                                                time=detection_time,
+                                                plateId=plate_id,
+                                                cameraId=None,
+                                                driverId=None
+                                            )
+                                            from src import db
+                                            db.session.add(blacklist_event)
+                                            db.session.flush()
+                                            alert = AlertService.create(event_id=blacklist_event.id, status='active')
+                                            db.session.commit()
+                                            # Yield alert event for real-time
+                                            yield {
+                                                'type': 'alert',
+                                                'data': {
+                                                    'description': blacklist_event.description,
+                                                    'plateNumber': plate_text,
+                                                    'alert': alert.get('data', {})
+                                                }
+                                            }
                             except Exception as plate_error:
                                 yield {
                                     'type': 'error',
