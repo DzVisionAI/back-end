@@ -8,7 +8,7 @@ license_plates_bp = Blueprint('license_plates', __name__)
 
 @license_plates_bp.route('/', methods=['GET'], strict_slashes=False)
 def get_license_plates():
-    query = LicensePlate.query
+    query = LicensePlate.query.order_by(LicensePlate.detectedAt.desc())
 
     # Query filters
     plate_number = request.args.get('plateNumber')
@@ -103,4 +103,33 @@ def get_license_plate(plate_id):
             'signed_url': get_signed_url(p.vehicle.image)
         } if p.vehicle else None
     }
-    return jsonify({'success': True, 'data': data}), 200 
+    return jsonify({'success': True, 'data': data}), 200
+
+@license_plates_bp.route('/<int:plate_id>', methods=['DELETE'], strict_slashes=False)
+def delete_license_plate(plate_id):
+    p = LicensePlate.query.get(plate_id)
+    if not p:
+        return jsonify({'success': False, 'message': 'License plate not found'}), 404
+    try:
+        db.session.delete(p)
+        db.session.commit()
+        return jsonify({'success': True, 'message': 'License plate deleted'}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+@license_plates_bp.route('/<int:plate_id>', methods=['PUT'], strict_slashes=False)
+def update_license_plate(plate_id):
+    p = LicensePlate.query.get(plate_id)
+    if not p:
+        return jsonify({'success': False, 'message': 'License plate not found'}), 404
+    data = request.get_json()
+    if not data or 'plateNumber' not in data:
+        return jsonify({'success': False, 'message': 'plateNumber is required'}), 400
+    try:
+        p.plateNumber = data['plateNumber']
+        db.session.commit()
+        return jsonify({'success': True, 'message': 'License plate updated'}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'success': False, 'message': str(e)}), 500 

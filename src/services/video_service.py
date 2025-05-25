@@ -11,6 +11,8 @@ from src.models.license_plates_model import LicensePlate
 from src.models.events_model import Event
 from src.ai import LicensePlateDetector, VehicleTracker, get_car, read_license_plate
 from src.models.vehicles_model import Vehicle
+from src.models.blacklist_model import BlackList
+from src.services.alert_service import AlertService
 
 # Import new AI functions (you'll need to implement these)
 from src.ai import detect_vehicle_color
@@ -425,7 +427,26 @@ class VideoService:
                     driverId=None
                 )
                 db.session.add(detection_event)
-                
+
+                # ALERT SYSTEM: Check blacklist and create alert if needed
+                print(f"Checking blacklist for plate {plate_text}")
+                blacklisted = BlackList.query.filter(BlackList.plateNumber.ilike(plate_text), BlackList.status.ilike('active')).first()
+                print(f"Blacklisted: {blacklisted}")
+                if blacklisted:
+                    # Create event for blacklist alert
+                    blacklist_event = Event(
+                        typeName='blacklist_alert',
+                        description=f'Blacklisted plate {plate_text} detected.',
+                        time=detection_time,
+                        plateId=license_plate.id,
+                        cameraId=None,
+                        driverId=None
+                    )
+                    db.session.add(blacklist_event)
+                    db.session.flush()  # get event id
+                    # Create alert for this event
+                    AlertService.create(event_id=blacklist_event.id, status='active')
+
                 # Commit all changes
                 db.session.commit()
                 print(f"Successfully saved to database - Vehicle: {vehicle.id}, Plate: {plate_text}")

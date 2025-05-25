@@ -8,7 +8,7 @@ vehicles_bp = Blueprint('vehicles', __name__)
 
 @vehicles_bp.route('/', methods=['GET'], strict_slashes=False)
 def get_vehicles():
-    vehicles_query = Vehicle.query
+    vehicles_query = Vehicle.query.order_by(Vehicle.registerAt.desc())
     # Pagination
     try:
         page = int(request.args.get('page', 1))
@@ -71,4 +71,35 @@ def get_vehicle(vehicle_id):
         'image': v.image,
         'signed_url': get_signed_url(v.image)
     }
-    return jsonify({'success': True, 'data': data}), 200 
+    return jsonify({'success': True, 'data': data}), 200
+
+@vehicles_bp.route('/<int:vehicle_id>', methods=['DELETE'], strict_slashes=False)
+def delete_vehicle(vehicle_id):
+    v = Vehicle.query.get(vehicle_id)
+    if not v:
+        return jsonify({'success': False, 'message': 'Vehicle not found'}), 404
+    try:
+        db.session.delete(v)
+        db.session.commit()
+        return jsonify({'success': True, 'message': 'Vehicle deleted'}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'success': False, 'message': str(e)}), 500
+
+@vehicles_bp.route('/<int:vehicle_id>', methods=['PUT'], strict_slashes=False)
+def update_vehicle(vehicle_id):
+    v = Vehicle.query.get(vehicle_id)
+    if not v:
+        return jsonify({'success': False, 'message': 'Vehicle not found'}), 404
+    data = request.get_json()
+    if not data:
+        return jsonify({'success': False, 'message': 'No data provided'}), 400
+    try:
+        for field in ['make', 'color', 'model']:
+            if field in data:
+                setattr(v, field, data[field])
+        db.session.commit()
+        return jsonify({'success': True, 'message': 'Vehicle updated'}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'success': False, 'message': str(e)}), 500 
