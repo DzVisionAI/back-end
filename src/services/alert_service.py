@@ -1,19 +1,33 @@
 from src.models.alerts_model import Alert, db
 from datetime import datetime
+from src.models.license_plates_model import LicensePlate
 
 class AlertService:
     @staticmethod
     def get_all():
         alerts = Alert.query.order_by(Alert.time.desc()).all()
-        data = [
-            {
+        data = []
+        for a in alerts:
+            event = a.event  # via backref
+            event_data = None
+            if event:
+                plate_number = None
+                if event.plateId:
+                    plate = LicensePlate.query.get(event.plateId)
+                    if plate:
+                        plate_number = plate.plateNumber
+                event_data = {
+                    'description': event.description,
+                    'plateNumber': plate_number
+                }
+            data.append({
                 'id': a.id,
                 'eventId': a.eventId,
                 'time': a.time,
                 'status': a.status,
-                'acknowledged': a.acknowledged
-            } for a in alerts
-        ]
+                'acknowledged': a.acknowledged,
+                'event': event_data
+            })
         return {'success': True, 'data': data}
 
     @staticmethod
