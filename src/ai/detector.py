@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 from ultralytics import YOLO
 import torch
+import cv2
 
 # Save the original torch.load function
 _original_torch_load = torch.load
@@ -53,6 +54,15 @@ class LicensePlateDetector:
                 detections.append([x1, y1, x2, y2, score])
         
         return detections
+    
+    def detect_car_color(self, frame):
+        """Detect car color in a frame."""
+        print("Detecting car color...")
+        # Save the input frame as an image for debugging or logging
+        cv2.imwrite("detected_car_color_frame.jpg", frame)
+        car_color_model = YOLO('car_color_detector.pt')
+        car_color_detections = car_color_model(frame)[0]
+        return car_color_detections.boxes.data.tolist()
     
     def detect_license_plates(self, frame):
         """Detect license plates in a frame."""

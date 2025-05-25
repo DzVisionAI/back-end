@@ -14,12 +14,13 @@ from .util import get_car, read_license_plate
 import cv2
 import numpy as np
 import torch
-from torchvision import transforms, models
+from torchvision import transforms
 from PIL import Image
 import os
 import json
 from pathlib import Path
-import torch.nn as nn
+import tensorflow as tf
+from tensorflow.keras.preprocessing import image
 
 # Load configurations
 def load_configs():
@@ -31,36 +32,13 @@ def load_configs():
 
 # Load pre-trained models and configurations
 def load_vehicle_color_model():
-    """Load pre-trained model for vehicle color detection only"""
-    model = models.efficientnet_b0(weights=models.EfficientNet_B0_Weights.DEFAULT)
-    for param in list(model.parameters())[:-20]:
-        param.requires_grad = False
-    class AttentionHead(nn.Module):
-        def __init__(self, in_features, num_classes):
-            super().__init__()
-            self.attention = nn.Sequential(
-                nn.Linear(in_features, 512),
-                nn.ReLU(),
-                nn.Linear(512, 1)
-            )
-            self.fc = nn.Sequential(
-                nn.Linear(in_features, 512),
-                nn.ReLU(),
-                nn.Dropout(0.3),
-                nn.Linear(512, num_classes)
-            )
-        def forward(self, x):
-            attention_weights = torch.sigmoid(self.attention(x))
-            weighted_features = x * attention_weights
-            return self.fc(weighted_features)
-    colors = load_configs()
-    in_features = model.classifier[1].in_features
-    model.classifier = AttentionHead(in_features, len(colors))
-    model_path = os.path.join(os.path.dirname(__file__), 'weights', 'vehicle_color_model.pth')
+    """Load pre-trained model for vehicle color detection"""
+    model_path = os.path.join(os.path.dirname(__file__), '..', 'model', 'car_color_classifier.h5')
     if os.path.exists(model_path):
-        model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
-    model.eval()
-    return model, colors
+        model = tf.keras.models.load_model(model_path)
+    else:
+        raise FileNotFoundError(f"Color classifier model not found at {model_path}")
+    return model
 
 # Create necessary directories and configuration files
 def initialize_ai_files():
@@ -75,9 +53,8 @@ def initialize_ai_files():
         colors_path = os.path.join(base_dir, 'config', 'colors.json')
         if not os.path.exists(colors_path):
             colors = [
-                "black", "white", "silver", "gray", "red",
-                "blue", "brown", "green", "beige", "gold",
-                "yellow", "orange", "purple", "pink"
+                "Black", "Blue", "Green", "Grey", "Orange",
+                "Red", "Silver", "White", "Yellow"
             ]
             with open(colors_path, 'w') as f:
                 json.dump(colors, f, indent=2)
@@ -103,14 +80,9 @@ initialize_ai_files()
 
 # Initialize the model and configurations globally
 try:
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    vehicle_model, COLORS = load_vehicle_color_model()
-    vehicle_model = vehicle_model.to(device)
-    preprocess = transforms.Compose([
-        transforms.Resize((224, 224)),
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
-    ])
+    vehicle_model = load_vehicle_color_model()
+    # Define the class labels
+    class_labels = ["Black", "Blue", "Green", "Grey", "Orange", "Red", "Silver", "White", "Yellow"]
 except Exception as e:
     print(f"Error initializing vehicle color detection: {str(e)}")
     raise
@@ -127,17 +99,35 @@ def preprocess_vehicle_image(image):
     return image.unsqueeze(0)
 
 def detect_vehicle_color(image):
-    """Detect the color of a vehicle from its image"""
+    """Detect the color of a vehicle from its image using the car color classifier"""
     try:
-        image_tensor = preprocess_vehicle_image(image).to(device)
-        with torch.no_grad():
-            output = vehicle_model(image_tensor)
-            color_probs = torch.softmax(output, dim=1)
-            color_idx = torch.argmax(color_probs, dim=1).item()
-            confidence = color_probs[0][color_idx].item()
-        if confidence > 0.5:
-            return COLORS[color_idx]
+        # Convert numpy array to PIL Image if needed
+        if isinstance(image, np.ndarray):
+            image = Image.fromarray(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+        
+        # Resize image to match model's expected input
+        image = image.resize((128, 128))
+        
+        # Convert to array and normalize using keras preprocessing
+        img_array = np.array(image) / 255.0
+        img_array = np.expand_dims(img_array, axis=0)
+        
+        # Get prediction
+        prediction = vehicle_model.predict(img_array)
+        class_idx = np.argmax(prediction[0])
+        confidence = prediction[0][class_idx]
+        
+        # Print debug information
+        print(f"Prediction values: {prediction[0]}")
+        print(f"Selected class index: {class_idx}")
+        print(f"Confidence: {confidence}")
+        
+        # Return the predicted color if confidence is high enough
+        # Lowering the threshold to 0.3 since we're getting None results
+        if confidence > 0.3:
+            return class_labels[class_idx]
         return None
+        
     except Exception as e:
         print(f"Error detecting vehicle color: {str(e)}")
         return None

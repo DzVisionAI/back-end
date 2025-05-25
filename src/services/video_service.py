@@ -401,7 +401,7 @@ class VideoService:
                     db.session.add(registration_event)
                 else:
                     # Update existing vehicle information if new data is available
-                    if vehicle_color and not vehicle.color:
+                    if vehicle_color:  # Always update color if we detect it
                         vehicle.color = vehicle_color
                         # Create event for color update
                         color_event = Event(
